@@ -1,7 +1,7 @@
 ﻿using TobiasCSStandard.Mathematics;
 using HexUN.MonoB;
-using HexUN.Animation;
 using UnityEngine;
+using HexUN.Animation;
 
 namespace HexUN.UXUI
 {
