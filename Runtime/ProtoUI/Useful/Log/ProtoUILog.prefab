@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2948271640167048009}
   - component: {fileID: 1240136857}
   - component: {fileID: 1060320448}
-  - component: {fileID: 3140923918958265390}
   m_Layer: 5
   m_Name: ProtoUILog
   m_TagString: Untagged
@@ -81,7 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interactable: 1
   OnInteractionStateEvent:
-    _soEvent: {fileID: 0}
+    _unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
   _providers:
   - {fileID: 6041969573671819440}
 --- !u!114 &1240136857
@@ -118,33 +119,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1240136857}
         m_MethodName: Slide
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3140923918958265390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710276416893193856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415621ea58f38b04cb4077a5d23cdf8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggleProviderObject: {fileID: 1801501169527134534}
-  _onToggleEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1060320448}
-        m_MethodName: Invoke
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -423,7 +397,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1534066718, guid: 6524571e0bc0cec4283675c055e0fb61, type: 3}
       propertyPath: _state
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 139134930070766271, guid: 6524571e0bc0cec4283675c055e0fb61,
         type: 3}
@@ -573,18 +547,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2653151433960959995}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1801501169527134534 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4454575602775766717, guid: 6524571e0bc0cec4283675c055e0fb61,
-    type: 3}
-  m_PrefabInstance: {fileID: 2653151433960959995}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1641ebddb2e2098478eed6b78a560f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6041969573671819440 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8577246763929499467, guid: 6524571e0bc0cec4283675c055e0fb61,
