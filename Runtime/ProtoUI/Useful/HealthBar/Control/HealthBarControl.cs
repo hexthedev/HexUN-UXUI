@@ -8,7 +8,7 @@ namespace HexUN.UXUI
     /// </summary>
     public class HealthBarControl : MonoBehaviour
     {
-        [Header("Deps")]
+        [Header("Dependencies (HealthBarControl)")]
         [SerializeField]
         private AHealthBarView _view;
 
@@ -22,6 +22,15 @@ namespace HexUN.UXUI
         /// Value of the bar
         /// </summary>
         public float Value => _value;
+        
+        /// <summary>
+        /// Set the color of the bar. 
+        /// </summary>
+        /// <param name="col"></param>
+        public void SetBarColor(Color main, Color background)
+        {
+            _view.SetBarColor(main, background);
+        }
 
         /// <summary>
         /// Set the bar to a value between 0 and 1

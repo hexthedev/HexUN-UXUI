@@ -5,19 +5,27 @@ namespace HexUN.UXUI
 {
     public class HealthBarView : AHealthBarView
     {
-        [Header("Deps")]
+        [Header("Dependencies (HealthBarView)")]
         [SerializeField]
         private Image _bar;
+
+        [SerializeField]
+        private Image _background;
 
         [Header("Debug")]
         [Range(0, 1)]
         [SerializeField]
         private float _value;
 
-        /// <summary>
-        /// Set the bar to a value between 0 and 1
-        /// </summary>
-        /// <param name="val"></param>
+
+        /// <inheritdoc />
+        public override void SetBarColor(Color main, Color background)
+        {
+            _bar.color = main;
+            _background.color = background;
+        }
+
+        /// <inheritdoc />
         public override void SetBarValue(float val)
         {
             if (_bar != null)
