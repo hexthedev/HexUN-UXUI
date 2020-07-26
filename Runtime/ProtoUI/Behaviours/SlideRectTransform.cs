@@ -1,4 +1,4 @@
-﻿using TobiasCSStandard.Mathematics;
+﻿using HexCS.Mathematics;
 using HexUN.MonoB;
 using UnityEngine;
 using HexUN.Animation;
