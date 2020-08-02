@@ -41,7 +41,7 @@ namespace HexUN.UXUI
         /// <returns></returns>
         public void Slide(bool state)
         {
-            IInterpolationToken token = InterpolationManager.Instance.StartInterpolation(
+            IInterpolationToken<float[]> token = InterpolationManager.Instance.StartInterpolation(
                 _interpolationId,
                 _speed,
                 new SInterpolation(
