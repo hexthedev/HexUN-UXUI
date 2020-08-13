@@ -9,12 +9,8 @@ using UnityEngine;
 
 namespace HexUN.UXUI
 {
-    public class PuiToggleControl : MonoEnhanced
+    public class PuiToggleControl : APuiControl<APuiToggleView>
     {
-        [Header("View")]
-        [SerializeField]
-        private APuiToggleView _view = null;
-
         [Header("Emissions")]
         [SerializeField]
         private BooleanReliableEvent _onToggleState = new BooleanReliableEvent();
@@ -43,7 +39,7 @@ namespace HexUN.UXUI
         {
             if (_interactable == interactable) return;
             _interactable = interactable;
-            _view?.Render();
+            View?.Render();
             _onInteractationState.Invoke(_interactable);
         }
 
@@ -61,11 +57,11 @@ namespace HexUN.UXUI
         }
 
         /// <inheritdoc />
-        protected void OnValidate()
+        protected override void OnValidate()
         {
-            if (_view == null) _view = gameObject.GetComponent<APuiToggleView>();
+            if (View == null) View = gameObject.GetComponent<APuiToggleView>();
 
-            _view?.Initialize();
+            View?.Initialize();
             _onInteractationState?.Invoke(_interactable);
             _onToggleState?.Invoke(_toggleState);
         }
@@ -74,7 +70,7 @@ namespace HexUN.UXUI
         {
             if (_toggleState == state) return;
             _toggleState = state;
-            _view?.Render();
+            View?.Render();
             _onToggleState.Invoke(_toggleState);
         }
     }

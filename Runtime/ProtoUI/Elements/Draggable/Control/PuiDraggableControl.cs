@@ -5,17 +5,16 @@ using UnityEngine;
 
 namespace HexUN.UXUI
 {
-    public class PuiDraggableControl : MonoBehaviour
+    public class PuiDraggableControl : APuiControl<APuiDraggableView>
     {
-        [Header("Dependencies")]
-        [SerializeField]
-        private APuiDraggableView _view;
-
         [Header("Emissions")]
         [SerializeField]
         [Tooltip("Invoked when dropped")]
         private Vector2ReliableEvent _onDroppedEvent;
 
-
+        public void Start()
+        {
+            if (_onDroppedEvent != null) EventBindings.Add(View.OnDropped.Subscribe(_onDroppedEvent.Invoke));
+        }
     }
 }

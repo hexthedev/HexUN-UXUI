@@ -9,5 +9,10 @@ namespace HexUN.UXUI
         /// position within some frame of reference
         /// </summary>
         protected Event<UnityEngine.Vector2> OnDroppedEvent = new Event<UnityEngine.Vector2>();
+
+        /// <summary>
+        /// Event invoked when the draggable is droped. Provides the dropped screen position
+        /// </summary>
+        public IEventSubscriber<UnityEngine.Vector2> OnDropped => OnDroppedEvent;
     }
 }

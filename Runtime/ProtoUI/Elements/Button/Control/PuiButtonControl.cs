@@ -5,7 +5,7 @@ using HexUN.MonoB;
 
 namespace HexUN.UXUI
 {
-    public class PuiButtonControl : MonoEnhanced
+    public class PuiButtonControl : APuiControl<APuiButtonView>
     {
         [Header("View")]
         [SerializeField]
