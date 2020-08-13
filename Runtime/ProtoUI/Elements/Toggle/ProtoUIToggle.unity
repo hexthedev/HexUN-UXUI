@@ -215,34 +215,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4637111400660057803, guid: 6524571e0bc0cec4283675c055e0fb61,
         type: 3}
-      propertyPath: _onToggleState._unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637111400660057803, guid: 6524571e0bc0cec4283675c055e0fb61,
-        type: 3}
-      propertyPath: _onToggleState._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637111400660057803, guid: 6524571e0bc0cec4283675c055e0fb61,
-        type: 3}
-      propertyPath: _onToggleState._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637111400660057803, guid: 6524571e0bc0cec4283675c055e0fb61,
-        type: 3}
       propertyPath: _onToggleState._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1865588177}
-    - target: {fileID: 4637111400660057803, guid: 6524571e0bc0cec4283675c055e0fb61,
-        type: 3}
-      propertyPath: _onToggleState._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637111400660057803, guid: 6524571e0bc0cec4283675c055e0fb61,
-        type: 3}
-      propertyPath: _onToggleState._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7755273611870634208, guid: 6524571e0bc0cec4283675c055e0fb61,
         type: 3}
       propertyPath: m_Name

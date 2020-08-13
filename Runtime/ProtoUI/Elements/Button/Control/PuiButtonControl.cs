@@ -5,11 +5,11 @@ using HexUN.MonoB;
 
 namespace HexUN.UXUI
 {
-    public class ButtonUIControl : MonoEnhanced, IButtonUIControl
+    public class PuiButtonControl : MonoEnhanced
     {
         [Header("View")]
         [SerializeField]
-        private ButtonUIView _view;
+        private APuiButtonView _view;
 
         [Header("Emissions (AButtonUIControl)")]
         [SerializeField]
@@ -38,14 +38,14 @@ namespace HexUN.UXUI
         {
             if (_interactable == interactable) return;
             _interactable = interactable;
-            if(_view != null) _view.HandleInteractionState(interactable);
+            _view?.Render();
             _onInteractationState.Invoke(_interactable);
         }
 
         private void OnValidate()
         {
             _onInteractationState.Invoke(_interactable);
-            if (_view != null) _view.Initialize(_interactable);
+            _view?.Initialize();
         }
     }
 }

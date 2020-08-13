@@ -192,12 +192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e4734a307fb754084ac0379ba6dca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Control: {fileID: 3434282293616301817}
   _image: {fileID: 139134930070766271}
   _colorScheme: {fileID: 11400000, guid: 804e1036cb1f3ae47925a19fad83f581, type: 2}
   _SchemeColor: 0
   _resolvedGameColor: {fileID: 11400000, guid: 2bf4e827cfdeabe45865516521e1a368, type: 2}
   _hoverState: 2
-  _interactable: 1
 --- !u!1001 &1405823055067097102
 PrefabInstance:
   m_ObjectHideFlags: 0

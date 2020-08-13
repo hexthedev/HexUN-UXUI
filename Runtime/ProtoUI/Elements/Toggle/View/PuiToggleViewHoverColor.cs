@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using HexUN.Design;
 using HexUN.Input;
 using UnityEngine;
@@ -11,7 +9,7 @@ namespace HexUN.UXUI
     /// <summary>
     /// Toggles the color of a text and an image using Hoverable interaction events
     /// </summary>
-    public class ToggleUIViewHoverColor : AToggleUIView
+    public class PuiToggleViewHoverColor : APuiToggleView
     {
         [Header("Dependencies (ToggleUIViewHoverColor)")]
         [SerializeField]
@@ -48,40 +46,34 @@ namespace HexUN.UXUI
 
         [Header("View State")]
         [SerializeField]
-        private bool _state = default;
-
-        [SerializeField]
         private bool _isHovering = default;
-
-        [SerializeField]
-        private bool _interactable = default;
-
-        private bool changedThisFrame = false;
 
         #region Protected API
         protected override void MonoAwake()
         {
             base.MonoAwake();
-            _state = ToggleUIState.ToggleState;
             ResolveColorReferences();
         }
 
         protected override void MonoStart()
         {
             base.MonoStart();
-            CallAfterStart(o => SetToggleState(_state));
+            CallAfterStart(o => Render());
         }
 
         protected override void OnValidate()
         {
             base.OnValidate();
             ResolveColorReferences();
-            SetToggleState(_state);
             ResolveColorVisuals();
         }
         #endregion
 
         #region Public API
+        /// <summary>
+        /// Handle hover events
+        /// </summary>
+        /// <param name="hover"></param>
         public void HandleHoverableEvent(EHoverableEvent hover)
         {
 #if TOBIAS_DEBUG
@@ -92,44 +84,17 @@ namespace HexUN.UXUI
                 _isHovering = hover == EHoverableEvent.Hovering;
 
                 if (!IsStarted) ResolveColorVisuals();
-                else changedThisFrame = true;
+                else Render();
             }
         }
 
-        public override void Initialize(bool isInteractable, bool toggleState)
+        public override void Initialize()
         {
-            _interactable = isInteractable;
-            _state = toggleState;
             ResolveColorVisuals();
-        }
-
-        public override void HandleInteractionState(bool interactionState)
-        {
-            _interactable = interactionState;
-
-            if (!IsStarted) ResolveColorVisuals();
-            else changedThisFrame = true;
-        }
-
-        public override void HandleToggleState(bool state)
-        {
-            SetToggleState(state);
         }
         #endregion
 
-        private void SetToggleState(bool state)
-        {
-            _state = state;
-
-            if (!IsStarted) ResolveColorVisuals();
-            else changedThisFrame = true;
-
-        }
-
-        private void Update()
-        {
-            if (changedThisFrame) ResolveColorVisuals();
-        }
+        protected override void HandleFrameRender() => ResolveColorVisuals();
 
         private void ResolveColorReferences()
         {
@@ -140,14 +105,14 @@ namespace HexUN.UXUI
 
         private void ResolveColorVisuals()
         {
-            if (!_interactable)
+            if (!Control.IsInteractable)
             {
                 _text.color = _textColor.Greyed;
                 _image.color = _backgroundColorOn.Greyed;
             }
             else
             {
-                if (_state) ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOn);
+                if (Control.ToggleState) ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOn);
                 else ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOff);
             }
         }

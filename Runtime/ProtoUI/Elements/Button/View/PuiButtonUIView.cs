@@ -9,7 +9,7 @@ namespace HexUN.UXUI
     /// <summary>
     /// Toggles the color of a text and an image using Hoverable interaction events
     /// </summary>
-    public class ButtonUIView : MonoEnhanced
+    public class PuiButtonUIView : APuiButtonView
     {
         [Header("Dependencies (ButtonUIViewHoverColor)")]
         [SerializeField]
@@ -31,22 +31,13 @@ namespace HexUN.UXUI
         [SerializeField]
         private EHoverableEvent _hoverState = default;
 
-        [SerializeField]
-        private bool _interactable = default;
-
-        private bool _changedThisFrame = false;
-
         protected override void MonoAwake()
         {
             base.MonoAwake();
             ResolveColorReferences();
         }
         
-        public void Initialize(bool interactionState)
-        {
-            _interactable = interactionState;
-            ResolveColorVisuals();
-        }
+        public override void Initialize() => ResolveColorVisuals();
 
         /// <summary>
         /// Handle visual changes that occur when hover events are fired
@@ -55,27 +46,13 @@ namespace HexUN.UXUI
         public void HandleHoverableEvent(EHoverableEvent hover)
         {
             _hoverState = hover;
-            HandleFrameChange();
+            Render();
         }
 
-        /// <summary>
-        /// Handle visual changes that occur when the state of the interactablility changes
-        /// </summary>
-        /// <param name="interactionState"></param>
-        public void HandleInteractionState(bool interactionState)
-        {
-            _interactable = interactionState;
-            HandleFrameChange();
-        }
-
-        protected void OnValidate()
+        protected override void OnValidate()
         {
             ResolveColorReferences();
             ResolveColorVisuals();
-        }
-        private void Update()
-        {
-            if (_changedThisFrame) ResolveColorVisuals();
         }
 
         private void ResolveColorReferences()
@@ -85,7 +62,7 @@ namespace HexUN.UXUI
 
         private void ResolveColorVisuals()
         {
-            if (!_interactable)
+            if (!Control.IsInteractable)
             {
                 _image.color = _resolvedGameColor.Greyed;
             }
@@ -106,10 +83,6 @@ namespace HexUN.UXUI
             }
         }
 
-        private void HandleFrameChange()
-        {
-            if (IsStarted) _changedThisFrame = true;
-            else ResolveColorVisuals();
-        }
+        protected override void HandleFrameRender() => ResolveColorVisuals();
     }
 }
