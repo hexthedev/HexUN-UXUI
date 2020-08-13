@@ -9,19 +9,16 @@ namespace HexUN.UXUI
     /// </summary>
     public class PuiSlotControl : APuiSlotControl
     {
-        //[Header("Emissions")]
-        // EVENT, drop slot object
-
         public override GameObject OccupyingObject => throw new System.NotImplementedException();
 
         public void Clear()
         {
-            //View.Clear();
+            View.Clear();
         }
 
         public void PopulateSlot(GameObject populate)
         {
-            //View.PopulateSlot(populate);
+            View.PopulateSlot(populate);
         }
 
         protected override void ClearOccupying() => throw new System.NotImplementedException();

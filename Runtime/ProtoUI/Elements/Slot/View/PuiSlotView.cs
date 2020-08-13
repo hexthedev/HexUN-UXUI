@@ -5,6 +5,7 @@ namespace HexUN.UXUI
     public class PuiSlotView : APuiSlotView
     {
         [Header("Dependencies (SlotView)")]
+        [SerializeField]
         private Transform _occupationParent;
 
         [Header("Dependencies (Options)")]
@@ -24,6 +25,8 @@ namespace HexUN.UXUI
         public override void Clear()
         {
             EmptyEnabledSprite.ApplyToImage(ImageComponent);
+            _occupationInstruction = OccupationInstruction.RemoveOccupied;
+            Render();
         }
         #endregion
 

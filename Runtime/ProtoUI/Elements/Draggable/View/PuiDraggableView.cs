@@ -9,9 +9,6 @@ namespace HexUN.UXUI
         [Tooltip("Canvas dragging should be relative to")]
         public Canvas DragCanvas = null;
 
-        [Tooltip("Spawned dragg boject should be size of")]
-        public RectTransform MatchTransform = null;
-
         public SpriteArgs Icon = null;
 
         [SerializeField]
@@ -34,7 +31,9 @@ namespace HexUN.UXUI
             RectTransform rt = _dragObject.transform as RectTransform;
             rt.transform.SetParent(DragCanvas.transform, false);
             rt.transform.SetAsLastSibling();
-            rt.sizeDelta = new Vector2(MatchTransform.rect.width, MatchTransform.rect.height);
+
+            RectTransform copying = transform as RectTransform;
+            if(copying != null) rt.sizeDelta = new Vector2(copying.rect.height, copying.rect.width);
 
             Image img = _dragObject.AddComponent<Image>();
             Icon.ApplyToImage(img);
