@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace HexUN.UXUI
@@ -25,7 +26,7 @@ namespace HexUN.UXUI
         {
         }
         
-        public void HandleDragBegin(Vector2 data)
+        public void HandleDragBegin(PointerEventData data)
         {
             _dragObject = new GameObject("DraggingIcon", typeof(RectTransform));
             RectTransform rt = _dragObject.transform as RectTransform;
@@ -42,22 +43,22 @@ namespace HexUN.UXUI
             SetDragObjectPosition(data);
         }
 
-        public void HandleDrag(Vector2 data)
+        public void HandleDrag(PointerEventData data)
         {
             SetDragObjectPosition(data);
         }
 
-        public void HandleDrop(Vector2 data)
+        public void HandleDrop(PointerEventData data)
         {
             OnDroppedEvent.Invoke(data);
             _image.enabled = true;
             Destroy(_dragObject);
         }
 
-        private void SetDragObjectPosition(Vector2 pos)
+        private void SetDragObjectPosition(PointerEventData data)
         {
             if (_dragObject == null) return;
-            ((RectTransform)_dragObject.transform).position = pos;
+            ((RectTransform)_dragObject.transform).position = data.position;
         }
     }
 }

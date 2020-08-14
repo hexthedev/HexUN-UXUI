@@ -1,4 +1,5 @@
 ﻿using HexUN.MonoB;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HexUN.UXUI
@@ -35,11 +36,38 @@ namespace HexUN.UXUI
     /// </summary>
     public abstract class APuiControl : MonoEnhanced
     {
+        [Header("Proto UI Data")]
+        [SerializeField]
+        [Tooltip("Generic data used for querying info about UI control")]
+        protected List<ScriptableObject> _puiData;
+
         #region API
+        /// <summary>
+        /// Generic data used for querying info about UI control
+        /// </summary>
+        public ScriptableObject[] PuiData => _puiData.ToArray();
+        
         /// <summary>
         /// Initalization code for the ui element
         /// </summary>
         public virtual void Initialize() { }
+
+        /// <summary>
+        /// Add a pui data to the data
+        /// </summary>
+        /// <param name="data"></param>
+        public void AddPuiData(ScriptableObject data) => _puiData.Add(data);
+
+        /// <summary>
+        /// Remove a pui data from data
+        /// </summary>
+        /// <param name="data"></param>
+        public void RemovePuiData(ScriptableObject data) => _puiData.Remove(data);
+
+        /// <summary>
+        /// Clear the pui data cache
+        /// </summary>
+        public void ClearPuiData() => _puiData.Clear();
         #endregion
     }
 }

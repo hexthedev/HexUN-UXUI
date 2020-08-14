@@ -1,4 +1,5 @@
 ﻿using HexCS.Core;
+using UnityEngine.EventSystems;
 
 namespace HexUN.UXUI
 {
@@ -8,11 +9,11 @@ namespace HexUN.UXUI
         /// Invoked when the draggable view is dropped with the Vector2
         /// position within some frame of reference
         /// </summary>
-        protected Event<UnityEngine.Vector2> OnDroppedEvent = new Event<UnityEngine.Vector2>();
+        protected Event<PointerEventData> OnDroppedEvent = new Event<PointerEventData>();
 
         /// <summary>
         /// Event invoked when the draggable is droped. Provides the dropped screen position
         /// </summary>
-        public IEventSubscriber<UnityEngine.Vector2> OnDropped => OnDroppedEvent;
+        public IEventSubscriber<PointerEventData> OnDropped => OnDroppedEvent;
     }
 }
