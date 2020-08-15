@@ -53,6 +53,29 @@ namespace HexUN.UXUI
         public virtual void Initialize() { }
 
         /// <summary>
+        /// Try get the first listed data of type T
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool TryGetData<T>(out T data) where T : ScriptableObject
+        {
+            foreach(ScriptableObject obj in _puiData)
+            {
+                T cast = obj as T;
+
+                if (cast != null)
+                {
+                    data = cast;
+                    return true;
+                }
+            }
+
+            data = default;
+            return false;
+        }
+
+        /// <summary>
         /// Add a pui data to the data
         /// </summary>
         /// <param name="data"></param>
