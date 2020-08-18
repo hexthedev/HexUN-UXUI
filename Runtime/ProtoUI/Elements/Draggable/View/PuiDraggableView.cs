@@ -19,7 +19,7 @@ namespace HexUN.UXUI
 
         public override void Initialize()
         {
-            Icon.ApplyToImage(_image);
+            Icon?.ApplyToImage(_image);
         }
 
         protected override void HandleFrameRender()
@@ -37,7 +37,7 @@ namespace HexUN.UXUI
             if(copying != null) rt.sizeDelta = new Vector2(copying.rect.height, copying.rect.width);
 
             Image img = _dragObject.AddComponent<Image>();
-            Icon.ApplyToImage(img);
+            Icon?.ApplyToImage(img);
             _image.enabled = false;
 
             SetDragObjectPosition(data);
