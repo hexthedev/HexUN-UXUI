@@ -25,6 +25,14 @@ namespace HexUN.UXUI
         }
         #endregion
 
+        /// <summary>
+        /// Signal the view to render changes this frame
+        /// </summary>
+        protected void RenderView()
+        {
+            View?.Render();
+        }
+
         protected virtual void OnValidate()
         {
             if (View == null) View = gameObject.GetComponent<T>();

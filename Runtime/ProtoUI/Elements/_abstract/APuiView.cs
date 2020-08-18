@@ -43,7 +43,10 @@ namespace HexUN.UXUI
         /// <summary>
         /// Initalization code for the ui element
         /// </summary>
-        public virtual void Initialize() { }
+        public virtual void Initialize()
+        {
+            Render();
+        }
 
         /// <summary>
         /// Call to force a render to happen this frame. A render will do work to

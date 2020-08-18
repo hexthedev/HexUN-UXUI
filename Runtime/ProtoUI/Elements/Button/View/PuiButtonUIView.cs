@@ -62,6 +62,12 @@ namespace HexUN.UXUI
 
         private void ResolveColorVisuals()
         {
+            if (Control.ForceActive)
+            {
+                _image.color = _resolvedGameColor.Light;
+                return;
+            }
+
             if (!Control.IsInteractable)
             {
                 _image.color = _resolvedGameColor.Greyed;
