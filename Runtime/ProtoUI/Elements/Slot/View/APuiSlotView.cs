@@ -17,9 +17,5 @@ namespace HexUN.UXUI
         [SerializeField]
         [Tooltip("Image component used to show the slot visuals")]
         protected Image ImageComponent = null;
-
-        public abstract void PopulateSlot(GameObject obj);
-
-        public abstract void Clear();
     }
 }

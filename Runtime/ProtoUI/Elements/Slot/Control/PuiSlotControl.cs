@@ -9,18 +9,26 @@ namespace HexUN.UXUI
     /// </summary>
     public class PuiSlotControl : APuiSlotControl
     {
-        public override GameObject OccupyingObject => throw new System.NotImplementedException();
+        private GameObject _occupyingObject;
 
-        public void Clear()
+        public override GameObject OccupyingObject => _occupyingObject;
+
+        public override void Clear()
         {
-            View.Clear();
+            Destroy(OccupyingObject);
+            Clear();
         }
 
-        public void PopulateSlot(GameObject populate)
+        public override void PopulateSlot(GameObject populate)
         {
-            View.PopulateSlot(populate);
+            _occupyingObject = populate;
+            RenderView();
         }
 
-        protected override void ClearOccupying() => throw new System.NotImplementedException();
+        protected override void ClearOccupying()
+        {
+            _occupyingObject = null;
+            RenderView();
+        }
     }
 }

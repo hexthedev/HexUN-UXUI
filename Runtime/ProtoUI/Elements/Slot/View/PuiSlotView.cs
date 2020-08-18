@@ -8,28 +8,6 @@ namespace HexUN.UXUI
         [SerializeField]
         private Transform _occupationParent;
 
-        [Header("Dependencies (Options)")]
-        public bool IsEnabled = false;
-               
-        private OccupationInstruction _occupationInstruction;
-        private GameObject _occupyingObject;
-
-        #region API
-        public override void PopulateSlot(GameObject obj)
-        {
-            _occupyingObject = obj;
-            _occupationInstruction = OccupationInstruction.AddOccupied;
-            Render();
-        }
-
-        public override void Clear()
-        {
-            EmptyEnabledSprite.ApplyToImage(ImageComponent);
-            _occupationInstruction = OccupationInstruction.RemoveOccupied;
-            Render();
-        }
-        #endregion
-
         protected override void OnValidate()
         {
             HandleFrameRender();
@@ -37,27 +15,10 @@ namespace HexUN.UXUI
 
         protected override void HandleFrameRender()
         {
-            if (IsEnabled) EmptyEnabledSprite.ApplyToImage(ImageComponent);
-            else EmptyDisabledSprite.ApplyToImage(ImageComponent);
+            GameObject occu = Control.OccupyingObject;
+            if (occu == null) return;
 
-            switch (_occupationInstruction)
-            {
-                case OccupationInstruction.AddOccupied:
-                    _occupyingObject.transform.SetParent(_occupationParent, false);
-                    _occupationInstruction = OccupationInstruction.None;
-                    break;
-                case OccupationInstruction.RemoveOccupied:
-                    Destroy(_occupyingObject);
-                    _occupationInstruction = OccupationInstruction.None;
-                    break;
-            }
-        }
-
-        private enum OccupationInstruction
-        {
-            None = 0,
-            AddOccupied = 1,
-            RemoveOccupied = 2
+            occu.transform.SetParent(_occupationParent, false);
         }
     }
 }

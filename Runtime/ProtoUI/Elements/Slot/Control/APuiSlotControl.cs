@@ -17,7 +17,11 @@ namespace HexUN.UXUI
         /// <summary>
         /// The current state of the slot
         /// </summary>
-        public State CurrentState { get; protected set; } = State.EmptyDisabed;
+        public State CurrentState { get; protected set; } = State.EmptyDisabled;
+
+        public abstract void Clear();
+
+        public abstract void PopulateSlot(GameObject populate);
 
         /// <summary>
         /// Empty the slot, deleting the object. Set the empty slot to enabled or disabled
@@ -25,8 +29,8 @@ namespace HexUN.UXUI
         /// <param name="state"></param>
         public void SetEmptyAndState(bool enabled)
         {
-            State state = enabled ? State.EmptyEnabled : State.EmptyDisabed;
-            //APuiSlotView.SetState(state, OccupyingObject);
+            State state = enabled ? State.EmptyEnabled : State.EmptyDisabled;
+            RenderView();
         }
         #endregion
 
@@ -38,7 +42,7 @@ namespace HexUN.UXUI
         #region Internal Objects
         public enum State
         {
-            EmptyDisabed = 0,
+            EmptyDisabled = 0,
             EmptyEnabled = 1,
             Occupied
         }
