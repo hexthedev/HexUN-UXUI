@@ -1,10 +1,4 @@
-﻿using HexUN.MonoB;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
-
-namespace HexUN.UXUI
+﻿namespace HexUN.UXUI
 {
     /// <summary>
     /// PuiControl and data extracted
