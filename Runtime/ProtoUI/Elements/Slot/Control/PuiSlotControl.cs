@@ -16,7 +16,7 @@ namespace HexUN.UXUI
         public override void Clear()
         {
             Destroy(OccupyingObject);
-            Clear();
+            RenderView();
         }
 
         public override void PopulateSlot(GameObject populate)

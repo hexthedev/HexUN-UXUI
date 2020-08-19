@@ -51,6 +51,11 @@ namespace HexUN.UXUI
 
         #region API
         /// <summary>
+        /// The Rect transform of the element
+        /// </summary>
+        public RectTransform RectTransform => transform as RectTransform;
+
+        /// <summary>
         /// Generic data used for querying info about UI control
         /// </summary>
         public ScriptableObject[] PuiData => _puiData.ToArray();
