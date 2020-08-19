@@ -11,7 +11,7 @@ namespace HexUN.UXUI
         [Header("Options (InGameMenuView)")]
         [SerializeField]
         [Tooltip("Gameobjects that make up the mainmenu")]
-        GameObject[] _menuObjects;
+        GameObject[] _menuObjects = null;
 
         [Header("State (InGameMenuView)")]
         [SerializeField]

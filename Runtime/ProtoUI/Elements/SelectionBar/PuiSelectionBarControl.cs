@@ -4,12 +4,16 @@ using UnityEngine;
 
 namespace HexUN.UXUI
 {
-    public class PuiSelectionGroupControl : APuiControl<PuiSelectionGroupView>
+    /// <summary>
+    /// Selection bar is a group of clickable ui elements in which
+    /// one element is selected. 
+    /// </summary>
+    public class PuiSelectionBarControl : APuiControl<PuiSelectionBarView>
     {
         [Header("Emissions")]
         [SerializeField]
         [Tooltip("Invoked when a selection change is made by the user. Does not automatically change selection")]
-        private Int32ReliableEvent _onSelectionChangeRequested;
+        private Int32ReliableEvent _onSelectionChangeRequested = null;
 
         [Header("Options")]
         [SerializeField]

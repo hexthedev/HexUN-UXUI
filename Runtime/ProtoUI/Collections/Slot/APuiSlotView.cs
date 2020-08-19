@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace HexUN.UXUI
 {
-    public abstract class APuiSlotView : APuiView<APuiSlotControl>
+    public abstract class APuiSlotView : APuiView<PuiSlotControl>
     {
         [Header("Dependencies (APuiSlotView)")]
         [SerializeField]

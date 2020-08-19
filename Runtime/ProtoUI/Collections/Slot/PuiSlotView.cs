@@ -6,13 +6,15 @@ namespace HexUN.UXUI
     {
         [Header("Dependencies (SlotView)")]
         [SerializeField]
-        private Transform _occupationParent;
+        private Transform _occupationParent = null;
 
+        /// <inheritidoc />
         protected override void OnValidate()
         {
             HandleFrameRender();
         }
 
+        /// <inheritidoc />
         protected override void HandleFrameRender()
         {
             GameObject occu = Control.OccupyingObject;

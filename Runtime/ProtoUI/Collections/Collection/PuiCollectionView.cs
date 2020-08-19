@@ -8,11 +8,11 @@ namespace HexUN.UXUI
     /// easily manage the elements in a group of common ui elements (like a grid
     /// or list) independent of the functionality of those elements. 
     /// </summary>
-    public class PuiCollectionView : APuiView<PuiCollectionControl>
+    public class PuiCollectionView : APuiView<PuiChildrenControl>
     {
         [SerializeField]
         [Tooltip("The gameobject to use as the parent of instantiated gameobjects")]
-        private Transform _parent;
+        private Transform _parent = null;
 
         [SerializeField]
         private int _maxCanRender = 10;

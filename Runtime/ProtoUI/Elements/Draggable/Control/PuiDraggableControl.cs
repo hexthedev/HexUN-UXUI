@@ -12,7 +12,7 @@ namespace HexUN.UXUI
         [Header("Emissions")]
         [SerializeField]
         [Tooltip("Invoked when dropped")]
-        private PointerEventDataReliableEvent _onDroppedEvent;
+        private PointerEventDataReliableEvent _onDroppedEvent = null;
 
         #region API
         /// <summary>

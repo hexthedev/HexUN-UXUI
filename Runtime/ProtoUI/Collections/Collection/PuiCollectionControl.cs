@@ -4,11 +4,11 @@ using UnityEngine;
 namespace HexUN.UXUI
 {
     /// <summary>
-    /// A Ui Collection is a List like strucutre of Ui elements. It's purpose is to
-    /// easily manage the elements in a group of common ui elements (like a grid
+    /// A PuiChildren is a List like strucutre of Ui elements that are children of it's transform. 
+    /// It's purpose is to easily manage the elements in a group of common ui elements (like a grid
     /// or list) independent of the functionality of those elements. 
     /// </summary>
-    public class PuiCollectionControl : APuiControl<PuiCollectionView>
+    public class PuiChildrenControl : APuiControl<PuiCollectionView>
     {
         private List<GameObject> _currentElements = new List<GameObject>();
 

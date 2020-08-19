@@ -7,15 +7,15 @@ namespace HexUN.UXUI
     {
         [Header("Dependencies (HealthBarView)")]
         [SerializeField]
-        private Image _bar;
+        private Image _bar = null;
 
         [SerializeField]
-        private Image _background;
+        private Image _background = null;
 
         [Header("Debug")]
         [Range(0, 1)]
         [SerializeField]
-        private float _value;
+        private float _value = 0;
 
 
         /// <inheritdoc />

@@ -10,12 +10,12 @@ namespace HexUN.UXUI
     {
         [Header("Dependencies (HealthBarControl)")]
         [SerializeField]
-        private AHealthBarView _view;
+        private AHealthBarView _view = null;
 
         [Header("State")]
         [Range(0, 1)]
         [SerializeField]
-        private float _value;
+        private float _value = 0;
 
         #region API
         /// <summary>

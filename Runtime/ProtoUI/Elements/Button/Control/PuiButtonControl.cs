@@ -8,7 +8,7 @@ namespace HexUN.UXUI
     {
         [Header("View")]
         [SerializeField]
-        private APuiButtonView _view;
+        private APuiButtonView _view = null;
 
         [Header("Emissions (AButtonUIControl)")]
         [SerializeField]
