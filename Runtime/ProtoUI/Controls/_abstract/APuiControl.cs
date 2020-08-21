@@ -12,13 +12,27 @@ namespace HexUN.UXUI
         [Header("Proto UI Data")]
         [SerializeField]
         [Tooltip("Generic data used for querying info about UI control")]
-        protected List<ScriptableObject> _puiData;
+        protected List<ScriptableObject> _puiSoData;
+
+        /// <summary>
+        /// All pui data. Pui data can be any type. The puiSoData is only used to allow
+        /// adding pui data in editor.
+        /// </summary>
+        protected List<object> _puiData;
 
         #region Protected API
         /// <summary>
         /// set to true in order to cause handle render to be called this frame
         /// </summary>
         protected bool RenderThisFrame { get; set; }
+
+        protected override void MonoAwake()
+        {
+            base.MonoAwake();
+
+            _puiData = new List<object>();
+            if (_puiSoData != null) _puiData.AddRange(_puiSoData);
+        }
 
         /// <summary>
         /// Handle the logic required when a render occurs
@@ -35,7 +49,7 @@ namespace HexUN.UXUI
         /// <summary>
         /// Generic data used for querying info about UI control
         /// </summary>
-        public ScriptableObject[] PuiData => _puiData.ToArray();
+        public object[] PuiData => _puiSoData.ToArray();
 
         /// <summary>
         /// Initalization code for the ui element
@@ -75,6 +89,27 @@ namespace HexUN.UXUI
 
             data = default;
             return false;
+        }
+
+        /// <summary>
+        /// Try get all occurences of a data type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public void TryGetAllData<T>(out List<T> data) where T : ScriptableObject
+        {
+            data = new List<T>();
+
+            foreach (ScriptableObject obj in _puiData)
+            {
+                T cast = obj as T;
+
+                if (cast != null)
+                {
+                    data.Add(cast);
+                }
+            }
         }
 
         /// <summary>
