@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace HexUN.UXUI
 {
-    public class PuiToggleControl : APuiControl<APuiToggleView>
+    public abstract class APuiToggleControl : APuiControl
     {
         [Header("Emissions")]
         [SerializeField]
@@ -20,10 +20,10 @@ namespace HexUN.UXUI
 
         [Header("Debug")]
         [SerializeField]
-        private bool _toggleState = false;
+        protected bool _toggleState = false;
 
         [SerializeField]
-        private bool _interactable = false;
+        protected bool _interactable = false;
 
         #region API
         /// <summary>
@@ -39,7 +39,7 @@ namespace HexUN.UXUI
         {
             if (_interactable == interactable) return;
             _interactable = interactable;
-            View?.Render();
+            Render();
             _onInteractationState.Invoke(_interactable);
         }
 
@@ -57,11 +57,8 @@ namespace HexUN.UXUI
         }
 
         /// <inheritdoc />
-        protected override void OnValidate()
+        protected virtual void OnValidate()
         {
-            if (View == null) View = gameObject.GetComponent<APuiToggleView>();
-
-            View?.Initialize();
             _onInteractationState?.Invoke(_interactable);
             _onToggleState?.Invoke(_toggleState);
         }
@@ -70,7 +67,7 @@ namespace HexUN.UXUI
         {
             if (_toggleState == state) return;
             _toggleState = state;
-            View?.Render();
+            Render();
             _onToggleState.Invoke(_toggleState);
         }
     }

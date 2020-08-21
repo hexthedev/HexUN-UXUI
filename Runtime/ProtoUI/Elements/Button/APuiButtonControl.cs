@@ -4,12 +4,8 @@ using HexUN.Events;
 
 namespace HexUN.UXUI
 {
-    public class PuiButtonControl : APuiControl<APuiButtonView>
+    public abstract class APuiButtonControl : APuiControl
     {
-        [Header("View")]
-        [SerializeField]
-        private APuiButtonView _view = null;
-
         [Header("Emissions (AButtonUIControl)")]
         [SerializeField]
         protected VoidReliableEvent _onClick = new VoidReliableEvent();
@@ -35,7 +31,7 @@ namespace HexUN.UXUI
             set
             {
                 if (_forceActive != value) _forceActive = value;
-                RenderView();
+                Render();
             }
         }
 
@@ -59,15 +55,15 @@ namespace HexUN.UXUI
         {
             if (_interactable == interactable) return;
             _interactable = interactable;
-            _view?.Render();
+            Render();
             _onInteractationState.Invoke(_interactable);
         }
         #endregion
 
-        protected override void OnValidate()
+        protected virtual void OnValidate()
         {
             _onInteractationState.Invoke(_interactable);
-            _view?.Initialize();
+            Initialize();
         }
     }
 }

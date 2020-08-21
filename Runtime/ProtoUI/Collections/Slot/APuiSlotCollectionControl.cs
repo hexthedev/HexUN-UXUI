@@ -7,7 +7,7 @@ namespace HexUN.UXUI
     /// filled with some custom sprite on command. Supports ability to drag slot objects
     /// and provides a drop location via event. 
     /// </summary>
-    public class PuiSlotControl : APuiControl<APuiSlotView>
+    public abstract class APuiSlotCollectionControl : APuiControl
     {
         #region API       
         /// <summary>
@@ -22,7 +22,7 @@ namespace HexUN.UXUI
         {
             Destroy(OccupyingObject);
             OccupyingObject = null;
-            RenderView();
+            Render();
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace HexUN.UXUI
         public void SetOccupying(GameObject populate)
         {
             OccupyingObject = populate;
-            RenderView();
+            Render();
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace HexUN.UXUI
         public void SetEmptyAndState(bool enabled)
         {
             State state = enabled ? State.EmptyEnabled : State.EmptyDisabled;
-            RenderView();
+            Render();
         }
         #endregion
 

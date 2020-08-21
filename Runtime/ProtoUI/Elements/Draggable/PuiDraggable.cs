@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace HexUN.UXUI
 {
-    public class PuiDraggableView : APuiDraggableView
+    public class PuiDraggable : APuiDraggableControl
     {
         [Header("Options")]
         [Tooltip("Canvas dragging should be relative to")]
@@ -50,7 +50,7 @@ namespace HexUN.UXUI
 
         public void HandleDrop(PointerEventData data)
         {
-            OnDroppedEvent.Invoke(data);
+            _onDroppedEvent.Invoke(data);
             _image.enabled = true;
             Destroy(_dragObject);
         }

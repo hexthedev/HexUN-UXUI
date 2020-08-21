@@ -9,7 +9,7 @@ namespace HexUN.UXUI
     /// <summary>
     /// Toggles the color of a text and an image using Hoverable interaction events
     /// </summary>
-    public class PuiToggleViewHoverColor : APuiToggleView
+    public class PuiToggleHoverColor : APuiToggleControl
     {
         [Header("Dependencies (ToggleUIViewHoverColor)")]
         [SerializeField]
@@ -105,14 +105,14 @@ namespace HexUN.UXUI
 
         private void ResolveColorVisuals()
         {
-            if (!Control.IsInteractable)
+            if (!IsInteractable)
             {
                 _text.color = _textColor.Greyed;
                 _image.color = _backgroundColorOn.Greyed;
             }
             else
             {
-                if (Control.ToggleState) ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOn);
+                if (ToggleState) ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOn);
                 else ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOff);
             }
         }

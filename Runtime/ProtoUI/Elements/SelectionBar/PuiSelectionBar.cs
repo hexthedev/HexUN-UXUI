@@ -6,12 +6,12 @@ namespace HexUN.UXUI
     /// <summary>
     /// The view for a selection group.
     /// </summary>
-    public class PuiSelectionBarView : APuiView<PuiSelectionBarControl>
+    public class PuiSelectionBar : APuiSelectionBarControl
     {
         [Header("Options")]
         [SerializeField]
         [Tooltip("The buttons in the group")]
-        private PuiButtonControl[] _groupButtons = null;
+        private APuiButtonControl[] _groupButtons = null;
 
         private void Start()
         {
@@ -20,7 +20,7 @@ namespace HexUN.UXUI
                 _groupButtons[i].OnClick.Subscribe(ClickResponseFactory(i));
             }
 
-            Action ClickResponseFactory(int index) => () =>  Control.RequestSelectionChange(index);
+            Action ClickResponseFactory(int index) => () =>  RequestSelectionChange(index);
         }
 
         protected override void HandleFrameRender()
@@ -28,14 +28,14 @@ namespace HexUN.UXUI
             for (int i = 0; i < _groupButtons.Length; i++)
             {
                 // disable
-                if (i > Control.MaxActiveIndex)
+                if (i > MaxActiveIndex)
                 {
                     _groupButtons[i].ForceActive = false;
                     _groupButtons[i].SetInteractable(false);
                     continue;
                 }
 
-                if (Control.Selected == i)
+                if (Selected == i)
                 {
                     _groupButtons[i].SetInteractable(true);
                     _groupButtons[i].ForceActive = true;

@@ -5,42 +5,7 @@ using UnityEngine;
 namespace HexUN.UXUI
 {
     /// <summary>
-    /// Abstract class for all views
-    /// </summary>
-    public abstract class APuiControl<T> : APuiControl
-        where T: APuiView
-    {
-        [Header("View")]
-        [SerializeField]
-        [Tooltip("Control used by the view")]
-        protected T View = default;
-
-        #region API
-        /// <summary>
-        /// Initalization code for the ui element
-        /// </summary>
-        public override void Initialize()
-        {
-            View.Initialize();
-        }
-        #endregion
-
-        /// <summary>
-        /// Signal the view to render changes this frame
-        /// </summary>
-        protected void RenderView()
-        {
-            View?.Render();
-        }
-
-        protected virtual void OnValidate()
-        {
-            if (View == null) View = gameObject.GetComponent<T>();
-        }
-    }
-
-    /// <summary>
-    /// Abstract class for all views
+    /// Abstract class for all controls
     /// </summary>
     public abstract class APuiControl : MonoEnhanced
     {
@@ -48,6 +13,18 @@ namespace HexUN.UXUI
         [SerializeField]
         [Tooltip("Generic data used for querying info about UI control")]
         protected List<ScriptableObject> _puiData;
+
+        #region Protected API
+        /// <summary>
+        /// set to true in order to cause handle render to be called this frame
+        /// </summary>
+        protected bool RenderThisFrame { get; set; }
+
+        /// <summary>
+        /// Handle the logic required when a render occurs
+        /// </summary>
+        protected abstract void HandleFrameRender();
+        #endregion
 
         #region API
         /// <summary>
@@ -59,11 +36,23 @@ namespace HexUN.UXUI
         /// Generic data used for querying info about UI control
         /// </summary>
         public ScriptableObject[] PuiData => _puiData.ToArray();
-        
+
         /// <summary>
         /// Initalization code for the ui element
         /// </summary>
-        public virtual void Initialize() { }
+        public virtual void Initialize()
+        {
+            Render();
+        }
+
+        /// <summary>
+        /// Call to force a render to happen this frame. A render will do work to
+        /// update a views visuals. 
+        /// </summary>
+        public void Render()
+        {
+            RenderThisFrame = true;
+        }
 
         /// <summary>
         /// Try get the first listed data of type T
@@ -105,5 +94,14 @@ namespace HexUN.UXUI
         /// </summary>
         public void ClearPuiData() => _puiData.Clear();
         #endregion
+
+        private void LateUpdate()
+        {
+            if (RenderThisFrame)
+            {
+                HandleFrameRender();
+                RenderThisFrame = false;
+            }
+        }
     }
 }

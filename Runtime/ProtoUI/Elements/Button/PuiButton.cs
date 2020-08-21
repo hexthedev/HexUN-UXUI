@@ -9,7 +9,7 @@ namespace HexUN.UXUI
     /// <summary>
     /// Toggles the color of a text and an image using Hoverable interaction events
     /// </summary>
-    public class PuiButtonUIView : APuiButtonView
+    public class PuiButton : APuiButtonControl
     {
         [Header("Dependencies (ButtonUIViewHoverColor)")]
         [SerializeField]
@@ -62,13 +62,13 @@ namespace HexUN.UXUI
 
         private void ResolveColorVisuals()
         {
-            if (Control.ForceActive)
+            if (ForceActive)
             {
                 _image.color = _resolvedGameColor.Light;
                 return;
             }
 
-            if (!Control.IsInteractable)
+            if (!IsInteractable)
             {
                 _image.color = _resolvedGameColor.Greyed;
             }

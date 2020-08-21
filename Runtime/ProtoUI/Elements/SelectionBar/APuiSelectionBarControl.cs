@@ -8,7 +8,7 @@ namespace HexUN.UXUI
     /// Selection bar is a group of clickable ui elements in which
     /// one element is selected. 
     /// </summary>
-    public class PuiSelectionBarControl : APuiControl<PuiSelectionBarView>
+    public abstract class APuiSelectionBarControl : APuiControl
     {
         [Header("Emissions")]
         [SerializeField]
@@ -33,7 +33,7 @@ namespace HexUN.UXUI
             {
                 if (_maxActiveIndex == value) return;
                 _maxActiveIndex = value;
-                RenderView();
+                Render();
             }
         }
 
@@ -45,7 +45,7 @@ namespace HexUN.UXUI
             set
             {
                 if (_selected != value) _selected = value;
-                RenderView();
+                Render();
             }
         }
 
@@ -71,7 +71,7 @@ namespace HexUN.UXUI
         public void SetActiveRange(int maxIndex)
         {
             MaxActiveIndex = maxIndex;
-            RenderView();
+            Render();
         }
         #endregion
     }
