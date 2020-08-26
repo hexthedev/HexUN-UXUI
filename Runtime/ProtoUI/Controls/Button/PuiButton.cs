@@ -11,23 +11,25 @@ namespace HexUN.UXUI
     /// </summary>
     public class PuiButton : APuiButtonControl
     {
-        [Header("Dependencies (ButtonUIViewHoverColor)")]
+        [Header("Dependencies (Button)")]
         [SerializeField]
         private Image _image = default;
 
         [SerializeField]
         private GameColorScheme _colorScheme = default;
 
-        [Header("Options (ButtonUIViewHoverColor)")]
+        [Header("Options (Button)")]
         [SerializeField]
         [Tooltip("What is the neutral color when not being clicked")]
         private ESchemeColor _SchemeColor = ESchemeColor.Primary;
 
-        [Header("Debugging (ToggleUIViewHoverColor)")]
+#if HEXDB
+        [Header("Debugging (Button)")]
         [SerializeField]
+#endif
         private GameColor _resolvedGameColor = default;
 
-        [Header("View State")]
+        [Header("State (Button)")]
         [SerializeField]
         private EHoverableEvent _hoverState = default;
 
@@ -51,6 +53,7 @@ namespace HexUN.UXUI
 
         protected override void OnValidate()
         {
+            base.OnValidate();
             ResolveColorReferences();
             ResolveColorVisuals();
         }
@@ -68,7 +71,7 @@ namespace HexUN.UXUI
                 return;
             }
 
-            if (!IsInteractable)
+            if (!Interactable)
             {
                 _image.color = _resolvedGameColor.Greyed;
             }

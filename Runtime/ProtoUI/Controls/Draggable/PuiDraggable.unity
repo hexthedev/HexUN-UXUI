@@ -472,7 +472,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2554090685537050162, guid: 76102368d766e8a478d7aa728ee27b8c,
         type: 3}
-      propertyPath: _dragCanvas
+      propertyPath: DragCanvas
       value: 
       objectReference: {fileID: 674350264}
     - target: {fileID: 2554090685537050172, guid: 76102368d766e8a478d7aa728ee27b8c,
@@ -543,12 +543,12 @@ PrefabInstance:
     - target: {fileID: 2554090685537050172, guid: 76102368d766e8a478d7aa728ee27b8c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2554090685537050172, guid: 76102368d766e8a478d7aa728ee27b8c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2554090685537050172, guid: 76102368d766e8a478d7aa728ee27b8c,
         type: 3}

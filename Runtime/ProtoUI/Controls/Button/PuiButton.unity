@@ -401,6 +401,46 @@ PrefabInstance:
       propertyPath: _onClick._soEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1865588175}
+    - target: {fileID: 7746391331143185453, guid: 275532ec01ec8284794284830c663851,
+        type: 3}
+      propertyPath: _onClick._soEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746391331143185453, guid: 275532ec01ec8284794284830c663851,
+        type: 3}
+      propertyPath: _isInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746391331143185453, guid: 275532ec01ec8284794284830c663851,
+        type: 3}
+      propertyPath: _onClick._soEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746391331143185453, guid: 275532ec01ec8284794284830c663851,
+        type: 3}
+      propertyPath: _onClick._soEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746391331143185453, guid: 275532ec01ec8284794284830c663851,
+        type: 3}
+      propertyPath: _onClick._soEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1865588175}
+    - target: {fileID: 7746391331143185453, guid: 275532ec01ec8284794284830c663851,
+        type: 3}
+      propertyPath: _onClick._soEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746391331143185453, guid: 275532ec01ec8284794284830c663851,
+        type: 3}
+      propertyPath: _onClick._soEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746391331143185453, guid: 275532ec01ec8284794284830c663851,
+        type: 3}
+      propertyPath: _onClick._soEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7755273611870634208, guid: 275532ec01ec8284794284830c663851,
         type: 3}
       propertyPath: m_Name

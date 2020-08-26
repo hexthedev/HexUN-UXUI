@@ -25,7 +25,17 @@ namespace HexUN.UXUI
         protected override void HandleFrameRender()
         {
         }
-        
+
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+
+            if(_image != null && Icon != null)
+            {
+                Icon.ApplyToImage(_image);
+            }
+        }
+
         public void HandleDragBegin(PointerEventData data)
         {
             _dragObject = new GameObject("DraggingIcon", typeof(RectTransform));

@@ -1,9 +1,7 @@
 ﻿using HexCS.Core;
-using HexUN.Events;
 using HexUN.Input;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Vector2 = UnityEngine.Vector2;
 
 namespace HexUN.UXUI
 {

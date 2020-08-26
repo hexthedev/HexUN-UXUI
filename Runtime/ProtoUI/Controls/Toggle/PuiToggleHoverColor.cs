@@ -34,21 +34,27 @@ namespace HexUN.UXUI
         [Tooltip("What colors does the background follow in Off state. Hover is lighted, clicked is darker")]
         private ESchemeColor _backgroundSchemeColorOff = ESchemeColor.Secondary;
 
+#if HEXDB
         [Header("Debugging (ToggleUIViewHoverColor)")]
         [SerializeField]
+#endif
         private GameColor _textColor = default;
 
+#if HEXDB
         [SerializeField]
+#endif
         private GameColor _backgroundColorOn = default;
 
+#if HEXDB
         [SerializeField]
+#endif
         private GameColor _backgroundColorOff = default;
 
         [Header("View State")]
         [SerializeField]
         private bool _isHovering = default;
 
-        #region Protected API
+#region Protected API
         protected override void MonoAwake()
         {
             base.MonoAwake();
@@ -67,23 +73,23 @@ namespace HexUN.UXUI
             ResolveColorReferences();
             ResolveColorVisuals();
         }
-        #endregion
+#endregion
 
-        #region Public API
+#region Public API
         /// <summary>
         /// Handle hover events
         /// </summary>
         /// <param name="hover"></param>
         public void HandleHoverableEvent(EHoverableEvent hover)
         {
-#if TOBIAS_DEBUG
+#if HEXDB
             if (Log != null) Log.Invoke($"${gameObject.name}:{nameof(ToggleUIViewHoverColor)} received hover event {hover}");
 #endif
             if(hover != EHoverableEvent.Down) // toggle doesn't react to down
             {
                 _isHovering = hover == EHoverableEvent.Hovering;
 
-                if (!IsStarted) ResolveColorVisuals();
+                if (!IsStarted) ResolveColorReferences();
                 else Render();
             }
         }
@@ -92,7 +98,7 @@ namespace HexUN.UXUI
         {
             ResolveColorVisuals();
         }
-        #endregion
+#endregion
 
         protected override void HandleFrameRender() => ResolveColorVisuals();
 
@@ -105,7 +111,7 @@ namespace HexUN.UXUI
 
         private void ResolveColorVisuals()
         {
-            if (!IsInteractable)
+            if (!Interactable)
             {
                 _text.color = _textColor.Greyed;
                 _image.color = _backgroundColorOn.Greyed;

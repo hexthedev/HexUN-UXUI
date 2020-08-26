@@ -10,7 +10,7 @@ namespace HexUN.UXUI
     /// </summary>
     public abstract class APuiSelectionBarControl : APuiControl
     {
-        [Header("Emissions")]
+        [Header("Actions (SelectionBar)")]
         [SerializeField]
         [Tooltip("Invoked when a selection change is made by the user. Does not automatically change selection")]
         private Int32ReliableEvent _onSelectionChangeRequested = null;

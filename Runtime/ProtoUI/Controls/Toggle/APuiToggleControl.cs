@@ -1,54 +1,32 @@
-﻿using HexCS.Core;
-using HexUN.Deps;
-using HexUN.Events;
-using HexUN.MonoB;
-using HexUN.Patterns;
-using HexUN.Work;
-using HexUN.Input;
+﻿using HexUN.Events;
 using UnityEngine;
 
 namespace HexUN.UXUI
 {
     public abstract class APuiToggleControl : APuiControl
     {
-        [Header("Emissions")]
+        [Header("Actions (Toggle)")]
         [SerializeField]
         private BooleanReliableEvent _onToggleState = new BooleanReliableEvent();
 
-        [SerializeField]
-        private BooleanReliableEvent _onInteractationState = new BooleanReliableEvent();
-
+#if HEXDB
         [Header("Debug")]
         [SerializeField]
+#endif
         protected bool _toggleState = false;
 
-        [SerializeField]
-        protected bool _interactable = false;
-
-        #region API
+#region API
         /// <summary>
         /// Get or set the state of the toggle
         /// </summary>
         public bool ToggleState => _toggleState;
 
         /// <inheritdoc />
-        public bool IsInteractable => _interactable;
-
-        /// <inheritdoc />
-        public void SetInteractable(bool interactable)
-        {
-            if (_interactable == interactable) return;
-            _interactable = interactable;
-            Render();
-            _onInteractationState.Invoke(_interactable);
-        }
-
-        /// <inheritdoc />
         public void Toggle() => SetState(!ToggleState);
 
         /// <inheritdoc />
         public void ForceToggle(bool state) => SetState(state);
-        #endregion
+#endregion
 
         /// <inheritdoc />
         protected override void MonoStart()
@@ -57,9 +35,9 @@ namespace HexUN.UXUI
         }
 
         /// <inheritdoc />
-        protected virtual void OnValidate()
+        protected override void OnValidate()
         {
-            _onInteractationState?.Invoke(_interactable);
+            base.OnValidate();
             _onToggleState?.Invoke(_toggleState);
         }
 

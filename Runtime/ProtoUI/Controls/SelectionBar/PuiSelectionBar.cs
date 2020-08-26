@@ -31,18 +31,18 @@ namespace HexUN.UXUI
                 if (i > MaxActiveIndex)
                 {
                     _groupButtons[i].ForceActive = false;
-                    _groupButtons[i].SetInteractable(false);
+                    _groupButtons[i].Interactable = false;
                     continue;
                 }
 
                 if (Selected == i)
                 {
-                    _groupButtons[i].SetInteractable(true);
+                    _groupButtons[i].Interactable  = true;
                     _groupButtons[i].ForceActive = true;
                     continue;
                 }
 
-                _groupButtons[i].SetInteractable(true);
+                _groupButtons[i].Interactable  = true;
                 _groupButtons[i].ForceActive = false;
             }
         }
