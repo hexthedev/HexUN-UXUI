@@ -544,12 +544,12 @@ PrefabInstance:
     - target: {fileID: 6683841991315321144, guid: f82d68a0bb4665d459c034fc081112ca,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6683841991315321144, guid: f82d68a0bb4665d459c034fc081112ca,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6683841991315321144, guid: f82d68a0bb4665d459c034fc081112ca,
         type: 3}
@@ -586,5 +586,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuiSlot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6683841991315321143, guid: f82d68a0bb4665d459c034fc081112ca, type: 3}
+    - {fileID: 5760587964081553825, guid: f82d68a0bb4665d459c034fc081112ca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f82d68a0bb4665d459c034fc081112ca, type: 3}

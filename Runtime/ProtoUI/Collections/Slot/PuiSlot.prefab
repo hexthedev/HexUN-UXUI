@@ -10,9 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6683841991315321144}
   - component: {fileID: 6814363122279820206}
-  - component: {fileID: 5760587964081553825}
-  - component: {fileID: 6683841991315321142}
-  - component: {fileID: 6683841991315321143}
   m_Layer: 5
   m_Name: PuiSlot
   m_TagString: Untagged
@@ -48,51 +45,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6683841991315321145}
   m_CullTransparentMesh: 0
---- !u!114 &5760587964081553825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683841991315321145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9418fdb992cda3446aea05955fd8de79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _devmode: 0
-  _devMonobehaviours: []
---- !u!114 &6683841991315321142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683841991315321145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d597b6d978ed7f40a9226c19a8c7dd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  View: {fileID: 6683841991315321143}
---- !u!114 &6683841991315321143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683841991315321145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0cb0563250711a48a8e88ced2bbdffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Control: {fileID: 6683841991315321142}
-  EmptyDisabledSprite: {fileID: 11400000, guid: 59055a4f09a6cf246b8559fb3e7a1409,
-    type: 2}
-  EmptyEnabledSprite: {fileID: 11400000, guid: d2eff425b2d64404a82931103d9394ea, type: 2}
-  ImageComponent: {fileID: 8052062503454921884}
-  IsEnabled: 0
 --- !u!1 &8052062503454921886
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +65,7 @@ GameObject:
   m_IsActive: 1
 --- !u!224 &8052062503454921887
 RectTransform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

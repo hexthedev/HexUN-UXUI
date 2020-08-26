@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace HexUN.UXUI
 {
-    public class PuiSlotView : APuiSlotCollectionControl
+    public class PuiSlotView : APuiSlotCollection
     {
         [Header("Dependencies (APuiSlotView)")]
         [SerializeField]
@@ -29,7 +29,7 @@ namespace HexUN.UXUI
         }
 
         /// <inheritidoc />
-        protected override void HandleFrameRender()
+        protected void HandleFrameRender()
         {
             GameObject occu = OccupyingObject;
             if (occu == null) return;

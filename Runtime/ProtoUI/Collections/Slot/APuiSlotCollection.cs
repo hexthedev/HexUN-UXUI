@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HexUN.MonoB;
+using UnityEngine;
 
 namespace HexUN.UXUI
 {
@@ -7,7 +8,7 @@ namespace HexUN.UXUI
     /// filled with some custom sprite on command. Supports ability to drag slot objects
     /// and provides a drop location via event. 
     /// </summary>
-    public abstract class APuiSlotCollectionControl : APuiControl
+    public abstract class APuiSlotCollection : MonoEnhanced
     {
         #region API       
         /// <summary>
@@ -22,7 +23,6 @@ namespace HexUN.UXUI
         {
             Destroy(OccupyingObject);
             OccupyingObject = null;
-            Render();
         }
 
         /// <summary>
@@ -32,7 +32,6 @@ namespace HexUN.UXUI
         public void SetOccupying(GameObject populate)
         {
             OccupyingObject = populate;
-            Render();
         }
 
         /// <summary>
@@ -47,7 +46,6 @@ namespace HexUN.UXUI
         public void SetEmptyAndState(bool enabled)
         {
             State state = enabled ? State.EmptyEnabled : State.EmptyDisabled;
-            Render();
         }
         #endregion
 
