@@ -15,6 +15,10 @@ namespace HexUN.UXUI
     /// </summary>
     public abstract class APuiControl : MonoEnhanced
     {
+        [Tooltip("Allows modification of children elements")]
+        [SerializeField]
+        private bool _editMode = false;
+
         [Header("Interaction (Control)")]
         [SerializeField]
         [Tooltip("Is this UI eleent interactable")]
@@ -58,7 +62,7 @@ namespace HexUN.UXUI
             ResolveInteractability();
 #if UNITY_EDITOR
             PrefabStage s = PrefabStageUtility.GetCurrentPrefabStage();
-            UTDevModeManagment.SetDevMode(s != null, transform, _providers);
+            UTDevModeManagment.SetDevMode(_editMode || s != null, transform, _providers);
 #endif
         }
 
