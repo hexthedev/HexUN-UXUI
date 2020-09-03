@@ -9,32 +9,35 @@ namespace HexUN.UXUI
     /// </summary>
     public class SelectionProvider : MonoBehaviour
     {
+        [Header("Group")]
+        [SerializeField]
+        private SelectionGroup _group = null;
+
         [Header("Emissions")]
         [SerializeField]
         private VoidReliableEvent _onDeselect = null;
 
+        [SerializeField]
+        private VoidReliableEvent _onSelect = null;
+
         #region API
-        /// <summary>
-        /// The seleted seletion provider. The GameObject this provider is attached to
-        /// is the selected gameobject.
-        /// </summary>
-        public static SelectionProvider Selected { get; private set; } = null;
 
         public void Select()
         {
-            if(Selected != null)
+            if(_group != null && _group.Selected != null)
             {
-                Selected.Deselect();    
+                _group.Selected.Deselect();    
             }
 
-            Selected = this;
+            _group.Selected = this;
+            _onSelect.Invoke();
         }
 
         public void Deselect()
         {
-            if(Selected == this)
+            if(_group != null && _group.Selected == this)
             {
-                Selected = null;
+                _group.Selected = null;
                 _onDeselect.Invoke();
             }
         }
