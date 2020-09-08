@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HexUN.UXUI
 {
-    public abstract class APuiToggleControl : APuiControl
+    public abstract class APuiToggle : APuiControl
     {
         [Header("Actions (Toggle)")]
         [SerializeField]

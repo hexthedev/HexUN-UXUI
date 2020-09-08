@@ -6,12 +6,12 @@ namespace HexUN.UXUI
     /// <summary>
     /// The view for a selection group.
     /// </summary>
-    public class PuiSelectionBar : APuiSelectionBarControl
+    public class PuiSelectionBar : APuiSelectionBar
     {
         [Header("Options")]
         [SerializeField]
         [Tooltip("The buttons in the group")]
-        private APuiButtonControl[] _groupButtons = null;
+        private APuiButton[] _groupButtons = null;
 
         private void Start()
         {

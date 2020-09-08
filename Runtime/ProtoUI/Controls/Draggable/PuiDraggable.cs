@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace HexUN.UXUI
 {
-    public class PuiDraggable : APuiDraggableControl
+    public class PuiDraggable : APuiDraggable
     {
         [Header("Options")]
         [Tooltip("Canvas dragging should be relative to")]

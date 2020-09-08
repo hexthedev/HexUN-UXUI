@@ -9,7 +9,7 @@ namespace HexUN.UXUI
     /// <summary>
     /// Toggles the color of a text and an image using Hoverable interaction events
     /// </summary>
-    public class PuiButton : APuiButtonControl
+    public class PuiButton : APuiButton
     {
         [Header("Dependencies (Button)")]
         [SerializeField]

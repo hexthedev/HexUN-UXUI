@@ -9,7 +9,7 @@ namespace HexUN.UXUI
     /// <summary>
     /// Toggles the color of a text and an image using Hoverable interaction events
     /// </summary>
-    public class PuiToggleHoverColor : APuiToggleControl
+    public class PuiToggleHoverColor : APuiToggle
     {
         [Header("Dependencies (ToggleUIViewHoverColor)")]
         [SerializeField]
