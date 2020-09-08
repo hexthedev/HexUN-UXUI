@@ -153,7 +153,7 @@ GameObject:
   m_IsActive: 1
 --- !u!224 &8544982646305024718
 RectTransform:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -268,6 +268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63a17977e222f44835579cb16a5f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _editMode: 0
+  _hiddenSiblings:
+  - {fileID: 239494237533246827}
+  - {fileID: 159679960604672425}
+  _puiSoData: []
   _isInteractable: 1
   _onInteractationState:
     _unityEvent:
@@ -276,7 +281,6 @@ MonoBehaviour:
   _providers:
   - {fileID: 239494237533246827}
   - {fileID: 159679960604672425}
-  _puiSoData: []
   _onToggleState:
     _unityEvent:
       m_PersistentCalls:
@@ -290,7 +294,7 @@ MonoBehaviour:
   _isHovering: 0
 --- !u!114 &239494237533246827
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -319,7 +323,7 @@ MonoBehaviour:
   _pointerProviderObject: {fileID: 159679960604672425}
 --- !u!114 &159679960604672425
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

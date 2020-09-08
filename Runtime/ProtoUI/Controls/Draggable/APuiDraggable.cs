@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace HexUN.UXUI
 {
-    public abstract class APuiDraggable : APuiControl
+    public abstract class APuiDraggable : APuiInteractable
     {
         [Header("Emissions")]
         [SerializeField]

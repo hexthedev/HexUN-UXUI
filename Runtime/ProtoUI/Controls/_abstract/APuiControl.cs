@@ -1,39 +1,18 @@
-﻿using HexUN.MonoB;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using HexUN.Events;
+using HexUN.Facade;
 
-#if UNITY_EDITOR
-using UnityEditor.Experimental.SceneManagement;
-using HexUN.Debugging;
-#endif
 
 namespace HexUN.UXUI
 {
     /// <summary>
     /// Abstract class for all controls
     /// </summary>
-    public abstract class APuiControl : MonoEnhanced
+    public abstract class APuiControl : AMonoFacade
     {
-        [Tooltip("Allows modification of children elements")]
-        [SerializeField]
-        private bool _editMode = false;
-
-        [Header("Interaction (Control)")]
-        [SerializeField]
-        [Tooltip("Is this UI eleent interactable")]
-        private bool _isInteractable = true;
-
-        [SerializeField]
-        [Tooltip("Called when the control interaction state is changed")]
-        private BooleanReliableEvent _onInteractationState = new BooleanReliableEvent();
-
-        [SerializeField]
-        [Tooltip("References the provider monos")]
-        private MonoBehaviour[] _providers = null;
-
         #region Protected API
-        [Header("Proto UI Data (Control)")]
+        [Header("Proto UI Data (APuiControl)")]
         [SerializeField]
         [Tooltip("Generic data used for querying info about UI control")]
         protected List<ScriptableObject> _puiSoData;
@@ -56,15 +35,6 @@ namespace HexUN.UXUI
             _puiData = new List<object>();
             if (_puiSoData != null) _puiData.AddRange(_puiSoData);
         }
-        
-        protected virtual void OnValidate()
-        {
-            ResolveInteractability();
-#if UNITY_EDITOR
-            PrefabStage s = PrefabStageUtility.GetCurrentPrefabStage();
-            UTDevModeManagment.SetDevMode(_editMode || s != null, transform, _providers);
-#endif
-        }
 
         /// <summary>
         /// Handle the logic required when a render occurs
@@ -82,21 +52,6 @@ namespace HexUN.UXUI
         /// Generic data used for querying info about UI control
         /// </summary>
         public object[] PuiData => _puiSoData.ToArray();
-
-        /// <summary>
-        /// Is this vontrol interactable
-        /// </summary>
-        public bool Interactable
-        {
-            get => _isInteractable;
-            set
-            {
-                if (_isInteractable == value) return;
-                _isInteractable = value;
-                Render();
-                ResolveInteractability();
-            }
-        }
 
         /// <summary>
         /// Initalization code for the ui element
@@ -184,16 +139,6 @@ namespace HexUN.UXUI
                 HandleFrameRender();
                 RenderThisFrame = false;
             }
-        }
-
-        private void ResolveInteractability()
-        {
-            if (_providers != null)
-            {
-                foreach(MonoBehaviour mb in _providers) mb.enabled = _isInteractable;
-            }
-
-            _onInteractationState.Invoke(_isInteractable);
         }
     }
 }

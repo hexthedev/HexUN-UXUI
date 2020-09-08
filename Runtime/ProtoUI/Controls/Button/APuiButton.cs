@@ -4,7 +4,7 @@ using HexUN.Events;
 
 namespace HexUN.UXUI
 {
-    public abstract class APuiButton : APuiControl
+    public abstract class APuiButton : APuiInteractable
     {
         [Header("Actions (Button)")]
         [SerializeField]
