@@ -20,7 +20,7 @@ GameObject:
   m_IsActive: 1
 --- !u!224 &7284463473859707584
 RectTransform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -134,11 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e4734a307fb754084ac0379ba6dca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _genericSoData: []
   _editMode: 0
   _hiddenSiblings:
   - {fileID: 2419280988464554164}
   - {fileID: 8674083913882397588}
-  _puiSoData: []
   _isInteractable: 1
   _onInteractationState:
     _unityEvent:
@@ -157,7 +157,7 @@ MonoBehaviour:
   _hoverState: 2
 --- !u!114 &2419280988464554164
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817c7783e7855c74d9babe2026f30ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnClick:
+  OnClickEvent:
     _soEvent:
       m_PersistentCalls:
         m_Calls:
@@ -189,7 +189,7 @@ MonoBehaviour:
   _lastEvent: 4
 --- !u!114 &8674083913882397588
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
