@@ -15,6 +15,13 @@ namespace HexUN.UXUI
         
         public void ApplyToImage(Image image)
         {
+            if(Sprite == null)
+            {
+                SpriteArgs def = DefaultUXUI.Instance.DefaultSpriteArg;
+                def.ApplyToImage(image);
+                return;
+            }
+
             image.sprite = Sprite;
             if(OverrideColor) image.color = Color;
         }
