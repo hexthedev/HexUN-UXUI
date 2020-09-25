@@ -15,13 +15,9 @@ namespace HexUN.UXUI
 
         [Header("Emissions")]
         [SerializeField]
-        private VoidReliableEvent _onDeselect = null;
-
-        [SerializeField]
-        private VoidReliableEvent _onSelect = null;
+        private BooleanReliableEvent _onSelectionStateChange = null;
 
         #region API
-
         public void Select()
         {
             if(_group != null && _group.Selected != null)
@@ -30,7 +26,6 @@ namespace HexUN.UXUI
             }
 
             _group.Selected = this;
-            _onSelect.Invoke();
         }
 
         public void Deselect()
@@ -38,9 +33,18 @@ namespace HexUN.UXUI
             if(_group != null && _group.Selected == this)
             {
                 _group.Selected = null;
-                _onDeselect.Invoke();
             }
         }
         #endregion
+
+        private void Start()
+        {
+            _group.OnSelectionChange += HandleSelectionStateChange;
+        }
+
+        private void HandleSelectionStateChange()
+        {
+            _onSelectionStateChange.Invoke(_group.Selected == this);
+        }
     }
 }
