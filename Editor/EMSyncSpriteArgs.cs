@@ -1,6 +1,7 @@
 ﻿using Hex.Paths;
 using HexUN.Data;
 using System;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,16 +18,25 @@ namespace HexUN.UXUI
             // get paths to Sprite args
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(SpriteArgs)}");
 
-            foreach(string guid in guids)
+            Type spriteArgsType = typeof(SpriteArgs);
+            Type spriteType = typeof(Sprite);
+
+            foreach (string guid in guids)
             {
                 PathString path = AssetDatabase.GUIDToAssetPath(guid);
                 SpriteArgs args =  AssetDatabase.LoadAssetAtPath<SpriteArgs>(path);
 
                 string head = path.RelativeTo("So").ToString('/', false);
-                UnityPath spritePath = "Assets/Art/Sprites/" + head + ".png";
 
-                Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath.AssetDatabaseAssetPath);
-                if (sprite != null) args.Sprite = sprite;
+                foreach (FieldInfo f in spriteArgsType.GetFields())
+                {
+                    if (f.FieldType != spriteType) continue;
+
+                    UnityPath spritePath = "Assets/Art/Sprites/" + head + $"@{f.Name}.png";
+
+                    Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath.AssetDatabaseAssetPath);
+                    if (sprite != null) args.Neutral = sprite;
+                }
             }
 
             AssetDatabase.Refresh();

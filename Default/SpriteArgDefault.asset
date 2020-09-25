@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5951695a2885b1246a4099be07e092d9, type: 3}
   m_Name: SpriteArgDefault
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 7fcc53d1e9eafa44c938921f1aff8db2, type: 3}
-  OverrideColor: 1
+  Neutral: {fileID: 21300000, guid: 15dac99c7505d514fa61e1f3c48cd160, type: 3}
+  Hover: {fileID: 21300000, guid: 143b23665916f6248a49581d6349bdfa, type: 3}
+  Down: {fileID: 21300000, guid: dd66d109eaa2cc542a600e0403e9fe48, type: 3}
+  Highlighted: {fileID: 21300000, guid: 19dee7a4d4616e24f989ea184e4a02f5, type: 3}
+  Disabled: {fileID: 21300000, guid: fe7eb28c532687140a3e1155089be2f9, type: 3}
+  OverrideColor: 0
   Color: {r: 1, g: 1, b: 1, a: 1}
