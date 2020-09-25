@@ -35,7 +35,7 @@ namespace HexUN.UXUI
                     UnityPath spritePath = "Assets/Art/Sprites/" + head + $"@{f.Name}.png";
 
                     Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath.AssetDatabaseAssetPath);
-                    if (sprite != null) args.Neutral = sprite;
+                    if (sprite != null) f.SetValue(args, sprite);
                 }
             }
 
