@@ -7,7 +7,7 @@ using HexUN.Facade;
 namespace HexUN.UXUI
 {
     /// <summary>
-    /// Abstract class for all controls
+    /// Abstract class for all controls that require interactability toggling
     /// </summary>
     public abstract class APuiInteractable : APuiControl
     {
