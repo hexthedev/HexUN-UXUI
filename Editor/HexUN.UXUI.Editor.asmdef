@@ -1,5 +1,5 @@
 {
-    "name": "HexUN.UXUI",
+    "name": "HexUN.UXUI.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
@@ -7,7 +7,8 @@
         "GUID:ad04c35861a0f3d4395e5c37158c3399",
         "GUID:d719ed6c32f33b045a7574634230e607",
         "GUID:f5eab7ae485a28e4f9fdd568c21c4a83",
-        "GUID:b7d7c9b98c34b5246b240feca75ec8ca"
+        "GUID:b7d7c9b98c34b5246b240feca75ec8ca",
+        "GUID:bfc837a429ef16b45b04b5aedd17a9ef"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
