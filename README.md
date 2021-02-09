@@ -13,7 +13,7 @@ To add this to your project make sure the following is in your package.json
         "com.hex.hexun" : "https://github.com/hexthedev/HexUN.git",
         "com.hex.hexun.input" : "https://github.com/hexthedev/HexUN-Input.git",
         "com.unity.inputsystem": "1.0.1",
-        "com.hex.hexun.input" : "https://github.com/hexthedev/HexUXUI-Input.git",
+        "com.hex.hexun.uxui" : "https://github.com/hexthedev/HexUN-UXUI.git",
     }
 }
 ```
