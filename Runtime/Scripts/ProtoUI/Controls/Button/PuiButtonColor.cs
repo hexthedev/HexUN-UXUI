@@ -11,25 +11,25 @@ namespace HexUN.UXUI
     /// </summary>
     public class PuiButtonColor : APuiButton
     {
-        [Header("Dependencies (Button)")]
+        [Header("Dependencies (Rendering)")]
         [SerializeField]
         private Image _image = default;
 
         [SerializeField]
         private GameColorScheme _colorScheme = default;
 
-        [Header("Options (Button)")]
+        [Header("Options (Rendering)")]
         [SerializeField]
         [Tooltip("What is the neutral color when not being clicked")]
         private ESchemeColor _SchemeColor = ESchemeColor.Primary;
 
 #if HEXDB
-        [Header("Debugging (Button)")]
+        [Header("Debugging (Rendering)")]
         [SerializeField]
 #endif
         private GameColor _resolvedGameColor = default;
 
-        [Header("State (Button)")]
+        [Header("State (Rendering)")]
         [SerializeField]
         private EHoverableEvent _hoverState = default;
 
