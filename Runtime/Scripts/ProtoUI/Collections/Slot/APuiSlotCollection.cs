@@ -8,7 +8,7 @@ namespace HexUN.UXUI
     /// filled with some custom sprite on command. Supports ability to drag slot objects
     /// and provides a drop location via event. 
     /// </summary>
-    public abstract class APuiSlotCollection : MonoEnhanced
+    public abstract class APuiSlotCollection : HexBehaviour
     {
         #region API       
         /// <summary>

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HexUN.UXUI
 {
-    public abstract class AHealthBarView : MonoEnhanced
+    public abstract class AHealthBarView : HexBehaviour
     {
         /// <summary>
         /// Set the color of the bar
