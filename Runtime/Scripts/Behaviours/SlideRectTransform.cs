@@ -1,4 +1,4 @@
-﻿using HexUN.MonoB;
+﻿using HexUN.Behaviour;
 using UnityEngine;
 using HexUN.Animation;
 using HexUN.Math;

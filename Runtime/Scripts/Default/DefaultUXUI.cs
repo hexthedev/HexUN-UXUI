@@ -1,4 +1,4 @@
-﻿using HexUN.MonoB;
+﻿using HexUN.Behaviour;
 
 namespace HexUN.UXUI
 {
