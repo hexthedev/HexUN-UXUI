@@ -6,12 +6,12 @@ namespace HexUN.UXUI
 {
     public abstract class APuiButton : APuiInteractable
     {
-        [Header("Actions (Button)")]
+        [Header("Actions (APuiButton)")]
         [SerializeField]
         protected VoidReliableEvent _onClick = new VoidReliableEvent();
 
 #if HEXDB
-        [Header("Debug (AButtonUIControl)")]
+        [Header("Debug (APuiButton)")]
         [SerializeField]
 #endif
         protected bool _forceActive = false;

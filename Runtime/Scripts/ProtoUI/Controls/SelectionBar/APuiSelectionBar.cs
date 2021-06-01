@@ -17,7 +17,7 @@ namespace HexUN.UXUI
 
         [Header("Options")]
         [SerializeField]
-        [Tooltip("The max active index of the buttons. All bttons afte rindex will be disabled")]
+        [Tooltip("The max active index of the buttons. All buttons after index will be disabled")]
         private int _maxActiveIndex = 0;
 
         private int _selected = 0;

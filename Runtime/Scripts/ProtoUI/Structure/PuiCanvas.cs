@@ -1,4 +1,4 @@
-﻿using HexUN.MonoB;
+﻿using HexUN.Behaviour;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,7 +10,7 @@ namespace HexUN.UXUI
     /// Pui handler for canvas relative operations. Exists because graphic raycasting occurs per
     /// canvas even for nested canvases, so there needs to be a hierarchical solution
     /// </summary>
-    public class PuiCanvas : MonoEnhanced
+    public class PuiCanvas : HexBehaviour
     {
         [SerializeField]
         private Canvas _canvas;

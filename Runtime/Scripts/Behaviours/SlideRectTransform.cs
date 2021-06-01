@@ -1,4 +1,4 @@
-﻿using HexUN.MonoB;
+﻿using HexUN.Behaviour;
 using UnityEngine;
 using HexUN.Animation;
 using HexUN.Math;
@@ -8,7 +8,7 @@ namespace HexUN.UXUI
     /// <summary>
     /// Slides a rect transform back and forth using an interpolation
     /// </summary>
-    public class SlideRectTransform : MonoEnhanced
+    public class SlideRectTransform : HexBehaviour
     {
         [Header("Options")]
         [SerializeField]
