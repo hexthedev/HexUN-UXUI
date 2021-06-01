@@ -1,17 +1,1 @@
-{
-    "name": "com.hex.hexun.uxui",
-    "version": "1.0.1",
-    "displayName": "HexUN-UXUI",
-    "description": "Centralized patterns and reusable elements that uses Unity UI.",
-    "unity": "2019.4",
-    "unityRelease": "0f1",
-    "dependencies": {},
-    "keywords": [
-        "HexUN"
-    ],
-    "author": {
-        "name": "James McCafferty",
-        "email": "jamesmccafferty@live.ca",
-        "url": "https://github.com/hexthedev/HexUN-Input"
-    }
-}
+{"name": "com.hex.hexun.uxui", "version": "1.0.2", "displayName": "HexUN-UXUI", "description": "Centralized patterns and reusable elements that uses Unity UI.", "unity": "2019.4", "unityRelease": "0f1", "dependencies": {}, "keywords": ["HexUN"], "author": {"name": "James McCafferty", "email": "jamesmccafferty@live.ca", "url": "https://github.com/hexthedev/HexUN-Input"}}
