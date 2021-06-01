@@ -58,8 +58,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9490197, g: 0.40000004, b: 0.16078432, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -87,6 +88,7 @@ GameObject:
   - component: {fileID: 7746391331143185453}
   - component: {fileID: 2419280988464554164}
   - component: {fileID: 8674083913882397588}
+  - component: {fileID: 869669274}
   m_Layer: 5
   m_Name: PuiButton
   m_TagString: Untagged
@@ -134,27 +136,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e4734a307fb754084ac0379ba6dca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _genericSoData: []
-  _editMode: 0
-  _hiddenSiblings:
-  - {fileID: 2419280988464554164}
-  - {fileID: 8674083913882397588}
-  _isInteractable: 1
-  _onInteractationState:
-    _unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  _providers:
-  - {fileID: 2419280988464554164}
-  - {fileID: 8674083913882397588}
   _onClick:
     _soEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   _image: {fileID: 139134930070766271}
-  _colorScheme: {fileID: 11400000, guid: 804e1036cb1f3ae47925a19fad83f581, type: 2}
-  _SchemeColor: 0
-  _hoverState: 2
+  _neutral: {r: 1, g: 0, b: 0, a: 1}
+  _hover: {r: 0, g: 1, b: 0.8797238, a: 1}
+  _down: {r: 0.2668512, g: 1, b: 0, a: 1}
+  _disabled: {r: 1, g: 0.6882964, b: 0, a: 1}
+  _highlighted: {r: 0.9748373, g: 0, b: 1, a: 1}
 --- !u!114 &2419280988464554164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +175,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7746391331143185453}
+          m_TargetAssemblyTypeName: 
           m_MethodName: Click
           m_Mode: 1
           m_Arguments:
@@ -204,6 +208,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7746391331143185453}
+          m_TargetAssemblyTypeName: HexUN.Sub.UIUX.GuiButton_Color, HexUN.UXUI
           m_MethodName: HandleHoverableEvent
           m_Mode: 0
           m_Arguments:
@@ -213,6 +218,38 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
   _lastHoverableEvent: 2
   _pointerProviderObject: {fileID: 2419280988464554164}
+--- !u!114 &869669274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755273611870634208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e258c70621ffbc40ad25f4ba9f8654e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interactable: 1
+  OnInteractionStateEvent:
+    _unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7746391331143185453}
+          m_TargetAssemblyTypeName: HexUN.Sub.UIUX.GuiButton_Color, HexUN.UXUI
+          m_MethodName: HandleInteractableEvent
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+  _monobehaviours:
+  - {fileID: 2419280988464554164}
+  - {fileID: 8674083913882397588}

@@ -1,11 +1,13 @@
 ﻿using HexCS.Core;
 using HexUN.Input;
+using HexUN.Sub.UIUX.Framework;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace HexUN.UXUI
 {
-    public abstract class APuiDraggable : APuiInteractable
+    public abstract class APuiDraggable : GuiRenderBehaviour
     {
         [Header("Emissions")]
         [SerializeField]

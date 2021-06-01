@@ -1,9 +1,11 @@
 ﻿using HexUN.Events;
+using HexUN.Sub.UIUX.Framework;
+
 using UnityEngine;
 
 namespace HexUN.UXUI
 {
-    public abstract class APuiToggle : APuiInteractable
+    public abstract class APuiToggle : GuiRenderBehaviour
     {
         [Header("Actions (Toggle)")]
         [SerializeField]
@@ -35,9 +37,8 @@ namespace HexUN.UXUI
         }
 
         /// <inheritdoc />
-        protected override void OnValidate()
+        protected void OnValidate()
         {
-            base.OnValidate();
             _onToggleState?.Invoke(_toggleState);
         }
 
@@ -45,7 +46,7 @@ namespace HexUN.UXUI
         {
             if (_toggleState == state) return;
             _toggleState = state;
-            Render();
+            RenderAll();
             _onToggleState.Invoke(_toggleState);
         }
     }

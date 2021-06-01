@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using HexUN.Sub.UIUX.Framework;
+
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HexUN.UXUI
@@ -8,7 +10,7 @@ namespace HexUN.UXUI
     /// It's purpose is to easily manage the elements in a group of common ui elements (like a grid
     /// or list) independent of the functionality of those elements. 
     /// </summary>
-    public abstract class APuiChildrenCollectionControl : APuiControl
+    public abstract class APuiChildrenCollectionControl : GuiRenderBehaviour
     {
         private List<GameObject> _currentElements = new List<GameObject>();
 
@@ -26,7 +28,7 @@ namespace HexUN.UXUI
         {
             _currentElements.Add(element);
             element.SetActive(false);
-            Render();
+            RenderAll();
         }
 
         /// <summary>
@@ -41,7 +43,7 @@ namespace HexUN.UXUI
             {
                 Destroy(el);
                 _currentElements.Remove(el);
-                Render();
+                RenderAll();
             }
         }
 
@@ -59,7 +61,7 @@ namespace HexUN.UXUI
 
             foreach (Transform child in transform) Destroy(child.gameObject); // Destroy remaining children
 
-            Render();
+            RenderAll();
         }
         #endregion
     }

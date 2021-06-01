@@ -1,8 +1,9 @@
 ﻿using HexUN.Input;
+using HexUN.Sub.UIUX.Framework;
 
-namespace HexUN.UXUI
+namespace HexUN.Sub.UIUX
 {
-    public abstract class AHoverActivatable : APuiControl
+    public abstract class AHoverActivatable : GuiRenderBehaviour
     {
         private EHoverableEvent _hoverEvent = EHoverableEvent.Absent; 
 
@@ -13,7 +14,7 @@ namespace HexUN.UXUI
             {
                 if (value == _hoverEvent) return;
                 _hoverEvent = value;
-                Render();
+                RenderAll();
             }
         }
     }

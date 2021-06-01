@@ -22,14 +22,12 @@ namespace HexUN.UXUI
             Icon?.ApplyToImage(_image);
         }
 
-        protected override void HandleFrameRender()
+        protected override void HandleStyleRender()
         {
         }
 
-        protected override void OnValidate()
+        protected void OnValidate()
         {
-            base.OnValidate();
-
             if(_image != null && Icon != null)
             {
                 Icon.ApplyToImage(_image);
@@ -69,6 +67,11 @@ namespace HexUN.UXUI
         {
             if (_dragObject == null) return;
             ((RectTransform)_dragObject.transform).position = data.position;
+        }
+
+        protected override void HandleContentRender()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

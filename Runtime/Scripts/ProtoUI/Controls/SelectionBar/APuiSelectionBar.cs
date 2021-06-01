@@ -1,5 +1,7 @@
 ﻿using HexCS.Core;
 using HexUN.Events;
+using HexUN.Sub.UIUX.Framework;
+
 using UnityEngine;
 
 namespace HexUN.UXUI
@@ -8,7 +10,7 @@ namespace HexUN.UXUI
     /// Selection bar is a group of clickable ui elements in which
     /// one element is selected. 
     /// </summary>
-    public abstract class APuiSelectionBar : APuiControl
+    public abstract class APuiSelectionBar : GuiRenderBehaviour
     {
         [Header("Actions (SelectionBar)")]
         [SerializeField]
@@ -33,7 +35,7 @@ namespace HexUN.UXUI
             {
                 if (_maxActiveIndex == value) return;
                 _maxActiveIndex = value;
-                Render();
+                RenderAll();
             }
         }
 
@@ -45,7 +47,7 @@ namespace HexUN.UXUI
             set
             {
                 if (_selected != value) _selected = value;
-                Render();
+                RenderAll();
             }
         }
 
@@ -71,7 +73,7 @@ namespace HexUN.UXUI
         public void SetActiveRange(int maxIndex)
         {
             MaxActiveIndex = maxIndex;
-            Render();
+            RenderAll();
         }
         #endregion
     }

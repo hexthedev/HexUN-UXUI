@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using HexUN.Sub.UIUX;
+
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace HexUN.UXUI
@@ -19,8 +21,8 @@ namespace HexUN.UXUI
         {
             if(Neutral == null)
             {
-                SpriteArgs def = DefaultUXUI.Instance.DefaultSpriteArg;
-                def.ApplyToImage(image, state);
+                //SpriteArgs def = DefaultUXUI.Instance.DefaultSpriteArg;
+                //def.ApplyToImage(image, state);
                 return;
             }
 

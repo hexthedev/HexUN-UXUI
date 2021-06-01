@@ -49,34 +49,6 @@ namespace HexUN.UXUI
 
             return results;
         }
-
-        /// <summary>
-        /// perform a raycast on all canvases and return all results. Looks for data on the objects hit
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public List<SPuiControlData<T>> PerformDatacast<T>(PointerEventData data)
-            where T : ScriptableObject
-        {
-            List<RaycastResult> results = PerformRaycastRaw(data);
-
-            List<SPuiControlData<T>> controlDatas = new List<SPuiControlData<T>>();
-
-            foreach(RaycastResult res in results)
-            {
-                if (res.gameObject == null) continue;
-
-                PuiCastTarget targ = res.gameObject.GetComponent<PuiCastTarget>();
-                if (targ == null) continue;
-
-                if(targ.Control.TryGetData<T>(out T ctrlData))
-                {
-                    controlDatas.Add(new SPuiControlData<T>(targ.Control, ctrlData));
-                }
-            }
-
-            return controlDatas;
-        }
         #endregion
 
         private void OnValidate()

@@ -64,12 +64,11 @@ namespace HexUN.UXUI
         protected override void HexStart()
         {
             base.HexStart();
-            CallAfterStart(o => Render());
+            CallAfterStart(o => RenderAll());
         }
 
-        protected override void OnValidate()
+        protected void OnValidate()
         {
-            base.OnValidate();
             ResolveColorReferences();
             ResolveColorVisuals();
         }
@@ -90,7 +89,7 @@ namespace HexUN.UXUI
                 _isHovering = hover == EHoverableEvent.Hovering;
 
                 if (!IsStarted) ResolveColorReferences();
-                else Render();
+                else RenderAll();
             }
         }
 
@@ -100,7 +99,7 @@ namespace HexUN.UXUI
         }
 #endregion
 
-        protected override void HandleFrameRender() => ResolveColorVisuals();
+        protected override void HandleStyleRender() => ResolveColorVisuals();
 
         private void ResolveColorReferences()
         {
@@ -111,22 +110,27 @@ namespace HexUN.UXUI
 
         private void ResolveColorVisuals()
         {
-            if (!Interactable)
-            {
-                _text.color = _textColor.Greyed;
-                _image.color = _backgroundColorOn.Greyed;
-            }
-            else
-            {
-                if (ToggleState) ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOn);
-                else ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOff);
-            }
+            //if (!Interactable)
+            //{
+            //    _text.color = _textColor.Greyed;
+            //    _image.color = _backgroundColorOn.Greyed;
+            //}
+            //else
+            //{
+            //    if (ToggleState) ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOn);
+            //    else ResolveNeutralHoverColorVisuals(_textColor, _backgroundColorOff);
+            //}
         }
 
         private void ResolveNeutralHoverColorVisuals(GameColor textColor, GameColor imageColor)
         {
             _text.color = _isHovering ? textColor.Dark : textColor.Base;
             _image.color = _isHovering ? imageColor.Dark : imageColor.Base;
+        }
+
+        protected override void HandleContentRender()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

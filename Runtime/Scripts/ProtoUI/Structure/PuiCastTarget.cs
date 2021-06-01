@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using HexUN.Sub.UIUX.Framework;
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,10 +13,10 @@ namespace HexUN.UXUI
     public class PuiCastTarget : MonoBehaviour
     {
         [SerializeField]
-        private APuiControl _control = null;
+        private GuiRenderBehaviour _control = null;
 
         #region API
-        public APuiControl Control => _control;
+        public GuiRenderBehaviour Control => _control;
         #endregion
     }
 }

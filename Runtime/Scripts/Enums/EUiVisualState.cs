@@ -1,6 +1,6 @@
 ﻿using HexUN.Input;
 
-namespace HexUN.UXUI
+namespace HexUN.Sub.UIUX
 {
     public enum EUiVisualState
     {

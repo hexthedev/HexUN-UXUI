@@ -3,13 +3,14 @@ using HexUN.Input;
 using HexUN.Behaviour;
 using UnityEngine;
 using UnityEngine.UI;
+using HexUN.Sub.UIUX;
 
 namespace HexUN.UXUI
 {
     /// <summary>
     /// Toggles the color of a text and an image using Hoverable interaction events
     /// </summary>
-    public class PuiButtonSprite : APuiButton
+    public class PuiButtonSprite : GuiButtonBehaviour
     {
         [Header("Dependencies (Button)")]
         [SerializeField]
@@ -35,7 +36,7 @@ namespace HexUN.UXUI
             {
                 if (_spriteArgs == value) return;
                 _spriteArgs = value;
-                Render();
+                RenderAll();
             }
         }
 
@@ -49,13 +50,18 @@ namespace HexUN.UXUI
             {
                 if (_hoverState == value) return;
                 _hoverState = value;
-                Render();
+                RenderAll();
             }
         }
-        public override void Initialize() => HandleFrameRender();
+        public override void Initialize() => HandleContentRender();
+
+        protected override void HandleContentRender()
+        {
+            throw new System.NotImplementedException();
+        }
         #endregion
 
-        protected override void HandleFrameRender()
+        protected override void HandleStyleRender()
         {
             if(_spriteArgs == null)
             {
@@ -63,16 +69,16 @@ namespace HexUN.UXUI
                 return;
             }
 
-            if (ForceActive)
-            {
-                _spriteArgs.ApplyToImage(_image, EUiVisualState.Neutral);
-                return;
-            }
+            //if (ForceActive)
+            //{
+            //    _spriteArgs.ApplyToImage(_image, EUiVisualState.Neutral);
+            //    return;
+            //}
 
-            if (!Interactable)
-            {
-                _spriteArgs.ApplyToImage(_image, EUiVisualState.Disabled);
-            }
+            //if (!Interactable)
+            //{
+            //    _spriteArgs.ApplyToImage(_image, EUiVisualState.Disabled);
+            //}
             else
             {
                 if(UTEUiVisualState.TryFromEHoverableEvent(_hoverState, out EUiVisualState state))

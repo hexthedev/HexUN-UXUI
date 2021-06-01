@@ -1,9 +1,11 @@
-﻿namespace HexUN.UXUI
+﻿using HexUN.Sub.UIUX.Framework;
+
+namespace HexUN.UXUI
 {
     /// <summary>
     /// Able to view a string
     /// </summary>
-    public abstract class APuiStringView : APuiControl
+    public abstract class APuiStringView : GuiRenderBehaviour
     {
         private string _stringValue;
 
@@ -14,7 +16,7 @@
             get => _stringValue;
             set {
                 _stringValue = value;
-                Render();
+                RenderAll();
             } 
         }
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HexUN.Sub.UIUX;
+
+using System;
 using UnityEngine;
 
 namespace HexUN.UXUI
@@ -11,40 +13,45 @@ namespace HexUN.UXUI
         [Header("Options")]
         [SerializeField]
         [Tooltip("The buttons in the group")]
-        private APuiButton[] _groupButtons = null;
+        private GuiButtonBehaviour[] _groupButtons = null;
 
         private void Start()
         {
             for(int i = 0; i<_groupButtons.Length; i++)
             {
-                _groupButtons[i].OnClick.Subscribe(ClickResponseFactory(i));
+                //_groupButtons[i].OnClick.Subscribe(ClickResponseFactory(i));
             }
 
             Action ClickResponseFactory(int index) => () =>  RequestSelectionChange(index);
         }
 
-        protected override void HandleFrameRender()
+        protected override void HandleStyleRender()
         {
-            for (int i = 0; i < _groupButtons.Length; i++)
-            {
-                // disable
-                if (i > MaxActiveIndex)
-                {
-                    _groupButtons[i].ForceActive = false;
-                    _groupButtons[i].Interactable = false;
-                    continue;
-                }
+            //for (int i = 0; i < _groupButtons.Length; i++)
+            //{
+            //    // disable
+            //    if (i > MaxActiveIndex)
+            //    {
+            //        _groupButtons[i].ForceActive = false;
+            //        //_groupButtons[i].Interactable = false;
+            //        continue;
+            //    }
 
-                if (Selected == i)
-                {
-                    _groupButtons[i].Interactable  = true;
-                    _groupButtons[i].ForceActive = true;
-                    continue;
-                }
+            //    if (Selected == i)
+            //    {
+            //        //_groupButtons[i].Interactable  = true;
+            //        _groupButtons[i].ForceActive = true;
+            //        continue;
+            //    }
 
-                _groupButtons[i].Interactable  = true;
-                _groupButtons[i].ForceActive = false;
-            }
+            //    //_groupButtons[i].Interactable  = true;
+            //    _groupButtons[i].ForceActive = false;
+            //}
+        }
+
+        protected override void HandleContentRender()
+        {
+            throw new NotImplementedException();
         }
     }
 }
