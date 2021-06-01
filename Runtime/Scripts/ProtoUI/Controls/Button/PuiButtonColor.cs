@@ -33,9 +33,9 @@ namespace HexUN.UXUI
         [SerializeField]
         private EHoverableEvent _hoverState = default;
 
-        protected override void MonoAwake()
+        protected override void HexAwake()
         {
-            base.MonoAwake();
+            base.HexAwake();
             ResolveColorReferences();
         }
         

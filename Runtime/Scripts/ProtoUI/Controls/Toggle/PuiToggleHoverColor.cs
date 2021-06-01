@@ -55,15 +55,15 @@ namespace HexUN.UXUI
         private bool _isHovering = default;
 
 #region Protected API
-        protected override void MonoAwake()
+        protected override void HexAwake()
         {
-            base.MonoAwake();
+            base.HexAwake();
             ResolveColorReferences();
         }
 
-        protected override void MonoStart()
+        protected override void HexStart()
         {
-            base.MonoStart();
+            base.HexStart();
             CallAfterStart(o => Render());
         }
 

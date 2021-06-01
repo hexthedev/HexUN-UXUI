@@ -55,7 +55,7 @@ namespace HexUN.UXUI
             EventBindings.Add(token.OnInterpolationSubscriber.Subscribe(HandleInterpolation));
         }
 
-        protected override void MonoStart()
+        protected override void HexStart()
         {
             _interpolationId = InterpolationManager.Instance.GetUniqueId();
             _startAnchorX = _target.anchoredPosition.x;

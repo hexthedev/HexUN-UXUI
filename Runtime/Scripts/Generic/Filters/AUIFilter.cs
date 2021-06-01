@@ -17,7 +17,7 @@ namespace HexUN.UXUI
         /// <param name="o"></param>
         public abstract void HandleUI(object o);
 
-        protected override void MonoAwake()
+        protected override void HexAwake()
         {
             _listeningToEvent?.Event.Subscribe(HandleUI);
         }

@@ -29,7 +29,7 @@ namespace HexUN.UXUI
 #endregion
 
         /// <inheritdoc />
-        protected override void MonoStart()
+        protected override void HexStart()
         {
             CallAfterStart(o => SetState(_toggleState));
         }
