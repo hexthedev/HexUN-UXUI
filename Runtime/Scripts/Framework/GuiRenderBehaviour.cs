@@ -117,7 +117,7 @@ namespace HexUN.Sub.UIUX.Framework
         /// <summary>
         /// Creates a variable that will automatically call RenderStyle when changed 
         /// </summary>
-        public OnChangeVariable<T> MakeStyleVar<T>(T value)
+        public OnChangeVariable<T> MakeStyleVar<T>(T value = default)
         {
             OnChangeVariable<T> variable =  new OnChangeVariable<T>(RenderStyleOnChange);
             variable.Value = value;
@@ -129,7 +129,7 @@ namespace HexUN.Sub.UIUX.Framework
         /// <summary>
         /// Creates a variable that will automatically call RenderContent when changed 
         /// </summary>
-        public OnChangeVariable<T> MakeContentVar<T>(T value)
+        public OnChangeVariable<T> MakeContentVar<T>(T value = default)
         {
             OnChangeVariable<T> variable = new OnChangeVariable<T>(RenderContentOnChange);
             variable.Value = value;
