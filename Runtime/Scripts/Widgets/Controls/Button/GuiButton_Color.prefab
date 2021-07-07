@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8674083913882397588}
   - component: {fileID: 869669274}
   m_Layer: 5
-  m_Name: PuiButton
+  m_Name: GuiButton_Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
