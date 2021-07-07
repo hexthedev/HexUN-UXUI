@@ -46,7 +46,7 @@ namespace HexUN.Sub.UIUX.Framework
                 return;
             }
 #endif
-            if (StyleCoroutine == null) StyleCoroutine = StartCoroutine(StyleRoutine());
+            if (StyleCoroutine == null && gameObject.activeInHierarchy) StyleCoroutine = StartCoroutine(StyleRoutine());
         }
 
         /// <summary>
