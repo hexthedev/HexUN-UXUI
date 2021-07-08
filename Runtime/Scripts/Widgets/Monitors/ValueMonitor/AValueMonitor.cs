@@ -1,7 +1,7 @@
 using HexUN.Sub.UIUX.Framework;
 using HexUN.Utilities;
 
-namespace HexUN.Sub.UIUX.ProtoUi
+namespace HexUN.Sub.UIUX.Widgets
 {
     /// <summary>
     /// UiElement that renders a single value
@@ -15,23 +15,13 @@ namespace HexUN.Sub.UIUX.ProtoUi
         /// </summary>
         public T Value
         {
-            get => _value.Value;
-            set => _value.Value = value;
-        }
-
-
-        /// <inheritdoc />
-        protected override void HexAwake()
-        {
-            _value = MakeFrequentVar<T>(default);
+            get => GetFrequent(ref _value);
+            set => SetFrequent(ref _value, value);
         }
 
         /// <inheritdoc />
-        protected override void HandleFrequentRender()
-        {
-            HandleValueRender( GetFrequent(ref _value) );
-        }
-
+        protected override void HandleFrequentRender() => HandleValueRender( Value );
+        
         /// <summary>
         /// Implementation of value rendering
         /// </summary>

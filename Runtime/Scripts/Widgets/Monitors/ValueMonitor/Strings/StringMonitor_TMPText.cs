@@ -2,7 +2,7 @@ using TMPro;
 
 using UnityEngine;
 
-namespace HexUN.Sub.UIUX.ProtoUi
+namespace HexUN.Sub.UIUX.Widgets
 {
     public class StringMonitor_TMPText : AValueMonitor<string>
     {
