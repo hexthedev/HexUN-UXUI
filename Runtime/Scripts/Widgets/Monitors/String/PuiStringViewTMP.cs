@@ -11,12 +11,12 @@ namespace HexUN.UXUI
         [Tooltip("The text reference to update with provided string")]
         private TMP_Text _text;
 
-        protected override void HandleContentRender()
+        protected override void HandleFrequentRender()
         {
             throw new System.NotImplementedException();
         }
 
-        protected override void HandleStyleRender()
+        protected override void HandleOccasionalRender()
         {
             _text.text = StringValue;
         }

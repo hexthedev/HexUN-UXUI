@@ -11,7 +11,7 @@ namespace HexUN.Sub.UIUX
     /// <summary>
     /// Toggles the color of a text and an image using Hoverable interaction events
     /// </summary>
-    public class GuiButton_Color : GuiButtonBehaviour
+    public class GuiButton_Color : AGuiButtonBehaviour
     {
         [Header("[GuiButton_Color]")]
         [SerializeField] private Image _image = default;
@@ -31,13 +31,13 @@ namespace HexUN.Sub.UIUX
 
         private void Awake()
         {
-            SetStyle(ref _visualState, EUiVisualState.Neutral);
+            SetOccasional(ref _visualState, EUiVisualState.Neutral);
             ResolveVisualState();
         }
 
         protected void OnValidate()
         {
-            SetStyle(ref _visualState, EUiVisualState.Neutral);
+            SetOccasional(ref _visualState, EUiVisualState.Neutral);
             ResolveVisualState();
         }
 
@@ -66,18 +66,18 @@ namespace HexUN.Sub.UIUX
             // If not interactable, disabled
             if (!_interactable)
             {
-                SetStyle(ref _visualState, EUiVisualState.Disabled);
+                SetOccasional(ref _visualState, EUiVisualState.Disabled);
                 return;
             }
 
             // if not hovering then neutral
             if (UTEUiVisualState.TryFromEHoverableEvent(_hoverEvent, out EUiVisualState state))
-                SetStyle(ref _visualState, state);
+                SetOccasional(ref _visualState, state);
         }
 
-        protected override void HandleStyleRender()
+        protected override void HandleOccasionalRender()
         {
-            switch (GetStyle(ref _visualState))
+            switch (GetOccasional(ref _visualState))
             {
                 case EUiVisualState.Disabled:
                     _image.color = _disabled;
@@ -97,6 +97,6 @@ namespace HexUN.Sub.UIUX
             }
         }
 
-        protected override void HandleContentRender() { }
+        protected override void HandleFrequentRender() { }
     }
 }

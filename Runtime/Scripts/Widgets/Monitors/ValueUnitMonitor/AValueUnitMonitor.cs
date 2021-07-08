@@ -3,7 +3,7 @@ using HexUN.Utilities;
 
 namespace HexUN.Sub.UIUX.ProtoUi
 {
-    public abstract class AValueUnitMonitor<TValue, TUnit> : GuiRenderBehaviour
+    public abstract class AValueUnitMonitor<TValue, TUnit> : AGuiRenderBehaviour
     {
         private OnChangeVariable<TValue> _value;
         private OnChangeVariable<TUnit> _unit;
@@ -11,27 +11,27 @@ namespace HexUN.Sub.UIUX.ProtoUi
         /// <summary>
         /// The value to display
         /// </summary>
-        public TValue Value { get => GetContent(ref _value); set => SetContent(ref _value, value); }
+        public TValue Value { get => GetFrequent(ref _value); set => SetFrequent(ref _value, value); }
         
         /// <summary>
         /// The Unit to display
         /// </summary>
-        public TUnit Unit { get => GetStyle(ref _unit); set => SetStyle(ref _unit); }
+        public TUnit Unit { get => GetOccasional(ref _unit); set => SetOccasional(ref _unit); }
 
         protected override void HexAwake()
         {
-            _value = MakeContentVar<TValue>();
-            _unit = MakeStyleVar<TUnit>();
+            _value = MakeFrequentVar<TValue>();
+            _unit = MakeOccasionalVar<TUnit>();
         }
 
-        protected override void HandleContentRender()
+        protected override void HandleFrequentRender()
         {
             HandleValueChange(Value);
         }
 
         protected abstract void HandleValueChange(TValue value);
 
-        protected override void HandleStyleRender()
+        protected override void HandleOccasionalRender()
         {
             HandleUnitChange(Value);
         }

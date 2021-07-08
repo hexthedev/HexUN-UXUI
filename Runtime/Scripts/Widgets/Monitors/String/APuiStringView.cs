@@ -5,7 +5,7 @@ namespace HexUN.UXUI
     /// <summary>
     /// Able to view a string
     /// </summary>
-    public abstract class APuiStringView : GuiRenderBehaviour
+    public abstract class APuiStringView : AGuiRenderBehaviour
     {
         private string _stringValue;
 

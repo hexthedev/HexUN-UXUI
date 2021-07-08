@@ -1,11 +1,11 @@
-using UnityEngine;
-using HexCS.Core;
 using HexUN.Events;
 using HexUN.Sub.UIUX.Framework;
 
+using UnityEngine;
+
 namespace HexUN.Sub.UIUX
 {
-    public abstract class GuiButtonBehaviour : GuiRenderBehaviour
+    public abstract class AGuiButtonBehaviour : AGuiRenderBehaviour
     {
         [Header("[GuiButtonBehaviour]")]
         [Header("Actions")]

@@ -16,6 +16,6 @@ namespace HexUN.Sub.UIUX.ProtoUi
             _text.text = value;
         }
 
-        protected override void HandleStyleRender() { }
+        protected override void HandleOccasionalRender() { }
     }
 }

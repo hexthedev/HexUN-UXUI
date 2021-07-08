@@ -17,12 +17,12 @@ namespace HexUN.UXUI
         [SerializeField]
         private int _maxCanRender = 10;
 
-        protected override void HandleContentRender()
+        protected override void HandleFrequentRender()
         {
             throw new System.NotImplementedException();
         }
 
-        protected override void HandleStyleRender()
+        protected override void HandleOccasionalRender()
         {
             GameObject[] currentElements = CurrentElements;
 

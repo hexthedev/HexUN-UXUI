@@ -3,7 +3,7 @@ using HexUN.Sub.UIUX.Framework;
 
 namespace HexUN.Sub.UIUX
 {
-    public abstract class AHoverActivatable : GuiRenderBehaviour
+    public abstract class AHoverActivatable : AGuiRenderBehaviour
     {
         private EHoverableEvent _hoverEvent = EHoverableEvent.Absent; 
 

@@ -10,7 +10,7 @@ namespace HexUN.UXUI
     /// It's purpose is to easily manage the elements in a group of common ui elements (like a grid
     /// or list) independent of the functionality of those elements. 
     /// </summary>
-    public abstract class APuiChildrenCollectionControl : GuiRenderBehaviour
+    public abstract class APuiChildrenCollectionControl : AGuiRenderBehaviour
     {
         private List<GameObject> _currentElements = new List<GameObject>();
 

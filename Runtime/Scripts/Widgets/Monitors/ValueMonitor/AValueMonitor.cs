@@ -6,7 +6,7 @@ namespace HexUN.Sub.UIUX.ProtoUi
     /// <summary>
     /// UiElement that renders a single value
     /// </summary>
-    public abstract class AValueMonitor<T> : GuiRenderBehaviour
+    public abstract class AValueMonitor<T> : AGuiRenderBehaviour
     {
         private OnChangeVariable<T> _value;
 
@@ -23,13 +23,13 @@ namespace HexUN.Sub.UIUX.ProtoUi
         /// <inheritdoc />
         protected override void HexAwake()
         {
-            _value = MakeContentVar<T>(default);
+            _value = MakeFrequentVar<T>(default);
         }
 
         /// <inheritdoc />
-        protected override void HandleContentRender()
+        protected override void HandleFrequentRender()
         {
-            HandleValueRender( GetContent(ref _value) );
+            HandleValueRender( GetFrequent(ref _value) );
         }
 
         /// <summary>

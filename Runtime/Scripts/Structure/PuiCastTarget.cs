@@ -13,10 +13,10 @@ namespace HexUN.UXUI
     public class PuiCastTarget : MonoBehaviour
     {
         [SerializeField]
-        private GuiRenderBehaviour _control = null;
+        private AGuiRenderBehaviour _control = null;
 
         #region API
-        public GuiRenderBehaviour Control => _control;
+        public AGuiRenderBehaviour Control => _control;
         #endregion
     }
 }

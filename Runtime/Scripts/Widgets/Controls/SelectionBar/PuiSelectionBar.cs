@@ -13,7 +13,7 @@ namespace HexUN.UXUI
         [Header("Options")]
         [SerializeField]
         [Tooltip("The buttons in the group")]
-        private GuiButtonBehaviour[] _groupButtons = null;
+        private AGuiButtonBehaviour[] _groupButtons = null;
 
         private void Start()
         {
@@ -25,7 +25,7 @@ namespace HexUN.UXUI
             Action ClickResponseFactory(int index) => () =>  RequestSelectionChange(index);
         }
 
-        protected override void HandleStyleRender()
+        protected override void HandleOccasionalRender()
         {
             //for (int i = 0; i < _groupButtons.Length; i++)
             //{
@@ -49,7 +49,7 @@ namespace HexUN.UXUI
             //}
         }
 
-        protected override void HandleContentRender()
+        protected override void HandleFrequentRender()
         {
             throw new NotImplementedException();
         }

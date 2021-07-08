@@ -10,7 +10,7 @@ namespace HexUN.UXUI
     /// Selection bar is a group of clickable ui elements in which
     /// one element is selected. 
     /// </summary>
-    public abstract class APuiSelectionBar : GuiRenderBehaviour
+    public abstract class APuiSelectionBar : AGuiRenderBehaviour
     {
         [Header("Actions (SelectionBar)")]
         [SerializeField]

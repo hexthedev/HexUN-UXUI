@@ -22,7 +22,7 @@ namespace HexUN.UXUI
             Icon?.ApplyToImage(_image);
         }
 
-        protected override void HandleStyleRender()
+        protected override void HandleOccasionalRender()
         {
         }
 
@@ -69,7 +69,7 @@ namespace HexUN.UXUI
             ((RectTransform)_dragObject.transform).position = data.position;
         }
 
-        protected override void HandleContentRender()
+        protected override void HandleFrequentRender()
         {
             throw new System.NotImplementedException();
         }
