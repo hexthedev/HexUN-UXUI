@@ -22,7 +22,7 @@ namespace HexUN.UXUI
                 //_groupButtons[i].OnClick.Subscribe(ClickResponseFactory(i));
             }
 
-            Action ClickResponseFactory(int index) => () =>  RequestSelectionChange(index);
+            //Action ClickResponseFactory(int index) => () =>  RequestSelectionChange(index);
         }
 
         protected override void HandleOccasionalRender()

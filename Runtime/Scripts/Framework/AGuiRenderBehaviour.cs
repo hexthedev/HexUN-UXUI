@@ -35,6 +35,15 @@ namespace HexUN.Sub.UIUX.Framework
         /// </summary>
         protected abstract void HandleFrequentRender();
 
+        /// <summary>
+        /// Perform a render on enable so that disabling and enabling elements
+        /// doesn't cause a none render
+        /// </summary>
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            RenderAll();
+        }
 
         /// <summary>
         /// Initalization code for the ui element
