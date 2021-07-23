@@ -1,3 +1,4 @@
+using HexUN.Framework;
 using HexUN.Framework.Debugging;
 
 using System.Text;
@@ -10,6 +11,8 @@ namespace HexUN.Sub.UIUX.Widgets
 {
     public class GuiReLogMonitor_Text : AGuiReLogMonitor
     {
+        private const string cLogCategory = nameof(GuiReLogMonitor_Text);
+
         private StringBuilder _sb = new StringBuilder();
 
         [Header("[GuiReLogMonitor_Text]")]
@@ -27,6 +30,11 @@ namespace HexUN.Sub.UIUX.Widgets
         protected override void HandleLogRender(ReLogs log)
         {
             _sb.Clear();
+
+            if(log == null)
+            {
+                Debug.LogWarning($"Failed to render log because {nameof(ReLogs)} is null");
+            }
 
             foreach(SrLog srlog in log.Logs)
             {
